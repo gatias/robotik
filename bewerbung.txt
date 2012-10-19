@@ -4,6 +4,11 @@ Vorwissen Matthias:
 - Bachelor Arbeit im Bereich Bildverabreitung und Stereo Vision
 - Programmiererfahrung in C++, Matlab, R, Python 
 
+Vorwissen Manuel:
+ - Seminar zum Thema Objekterkennung und Computersehen
+ - Vorlesungen Computergraphik I und Computergraphik II
+ - Programmiererfahrung in C++, R, Python
+
 ########### Bewerbung Kinect #############
 
 
