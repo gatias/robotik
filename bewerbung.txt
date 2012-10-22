@@ -14,7 +14,7 @@ Vorwissen Manuel:
 ########### Bewerbung Kinect #############
 Praktikumsnummer: 06
 Priorität: 1 (höchste)
-Manuel Dewald und Matthias Hummel
+Team: Manuel Dewald & Matthias Hummel
 
 Master Angewandte Informatik, 3. Semester
 Fortgeschrittenen Praktikum erwünscht
@@ -32,11 +32,57 @@ In diesen Arbeiten sowie in einer Studienarbeit im Bereich KI wurden auch Progra
 Diese Erfahrung konnten wir erfolgreich in Softwarepraktika im Bereich Data Mining einsetzen. Begleitend zum Robotikpraktikum hören wir Design of Autonomous Systems welches sich mit mobilen Robotern befasst. 
 Zusätzlich können wir auf weitere Kentnisse mit Matlab, Python, Perl sowie R zurückgreifen.
 
+Nachfolgend sind die einzelnen Skills noch einmal in Stichpunkten aufgelistst.
+
+Vorwissen Matthias:
+- Mehrjährig Werkstudent in Bildverarbeitung (C++)
+- Vorlesung im Bereich Mustererkennund: Pattern Recognition, KDD?, Objekerkennung parallel zu Praktikum
+- Bachelor Arbeit im Bereich Bildverabreitung und Stereo Vision
+- Programmiererfahrung in C++, Matlab, R, Python 
+
+Vorwissen Manuel:
+ - Seminar zum Thema Objekterkennung und Computersehen
+ - Vorlesungen Computergraphik I und Computergraphik II
+ - Programmiererfahrung in C++, R, Python, Perl
+
 
 ########### Bewerbung Schlange #############
 Praktikumsnummer: 03
 Priorität: 2 (mittel)
+Team: Manuel Dewald & Matthias Hummel
+
+Master Angewandte Informatik, 3. Semester
+Fortgeschrittenen Praktikum erwünscht
+
+Motivation:
+
+
+Vorwissen Matthias:
+- Mehrjährig Werkstudent in Bildverarbeitung (C++)
+- Vorlesung im Bereich Mustererkennund: Pattern Recognition, KDD?, Objekerkennung parallel zu Praktikum
+- Bachelor Arbeit im Bereich Bildverabreitung und Stereo Vision
+- Programmiererfahrung in C++, Matlab, R, Python 
+
+Vorwissen Manuel:
+ - Seminar zum Thema Objekterkennung und Computersehen
+ - Vorlesungen Computergraphik I und Computergraphik II
+ - Programmiererfahrung in C++, R, Python, Perl
 
 ########### Bewerbung Plotter #############
 Praktikumsnummer: 04
 Priorität: 3 (niedrigste)
+Team: Manuel Dewald & Matthias Hummel
+
+Master Angewandte Informatik, 3. Semester
+Fortgeschrittenen Praktikum erwünscht
+
+Vorwissen Matthias:
+- Mehrjährig Werkstudent in Bildverarbeitung (C++)
+- Vorlesung im Bereich Mustererkennund: Pattern Recognition, KDD?, Objekerkennung parallel zu Praktikum
+- Bachelor Arbeit im Bereich Bildverabreitung und Stereo Vision
+- Programmiererfahrung in C++, Matlab, R, Python 
+
+Vorwissen Manuel:
+ - Seminar zum Thema Objekterkennung und Computersehen
+ - Vorlesungen Computergraphik I und Computergraphik II
+ - Programmiererfahrung in C++, R, Python, Perl
