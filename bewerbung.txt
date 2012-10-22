@@ -41,9 +41,9 @@ Vorwissen Manuel:
  - Seminar zum Thema Objekterkennung und Computersehen
  - Vorlesungen Computergraphik I und Computergraphik II
  - Knowledge Discovery in Databases
- - Studienarbeit im Bereich KI (TODO: Thema?)
- - Programmiererfahrung in C++, R, Python, Perl
- - Fortgeschrittenen Praktikum Data Mining (TODO: ?!)
+ - Studienarbeit im Bereich KI (Implementierung einer Backgammon-KI als Gegner für GNU-Backgammon)
+ - Programmiererfahrung in C++, R, Python, Perl, Java
+ - Fortgeschrittenen Praktikum Data Mining (TimeML: Annotation von Zeitintervallen)
 
 
 ########### Bewerbung Schlange #############
