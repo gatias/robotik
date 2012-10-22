@@ -12,6 +12,8 @@ Vorwissen Manuel:
 
 
 ########### Bewerbung Kinect #############
+Praktikumsnummer: 06
+Priorität: 1 (höchste)
 Manuel Dewald und Matthias Hummel
 
 Master Angewandte Informatik, 3. Semester
@@ -32,9 +34,9 @@ Zusätzlich können wir auf weitere Kentnisse mit Matlab, Python, Perl sowie R z
 
 
 ########### Bewerbung Schlange #############
-
-
+Praktikumsnummer: 03
+Priorität: 2 (mittel)
 
 ########### Bewerbung Plotter #############
-
-
+Praktikumsnummer: 04
+Priorität: 3 (niedrigste)
