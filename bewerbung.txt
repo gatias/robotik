@@ -1,49 +1,40 @@
-Vorwissen Matthias:
-- Mehrjährig Werkstudent in Bildverarbeitung (C++)
-- Vorlesung im Bereich Mustererkennund: Pattern Recognition, KDD?, Objekerkennung parallel zu Praktikum
-- Bachelor Arbeit im Bereich Bildverabreitung und Stereo Vision
-- Programmiererfahrung in C++, Matlab, R, Python 
-
-Vorwissen Manuel:
- - Seminar zum Thema Objekterkennung und Computersehen
- - Vorlesungen Computergraphik I und Computergraphik II
- - Programmiererfahrung in C++, R, Python, Perl
-
-
-
 ########### Bewerbung Kinect #############
 Praktikumsnummer: 06
 Priorität: 1 (höchste)
 Team: Manuel Dewald & Matthias Hummel
 
 Master Angewandte Informatik, 3. Semester
-Fortgeschrittenen Praktikum erwünscht
+Fortgeschritten-Praktikum erwünscht
 
 Motivation und Vorwissen:
-Die Begeisterung im Bereich der Computergraphik, Objekterkennung und Automation hat sich bei uns beiden seit einigen Semestern als Schwerpunkt herausgestellt. Durch Vorlesungen wie Computergrafik 1-2, Pattern Recognition, Objekterkennung/Computersehen, Künstliche Intelligenz und Data Mining konnten wir vielseitiges Wissen über Grafik bzw. Bildverarbeitung und Erkennung von Mustern im Allgemeinen, sammeln. 
-Mehrjährige Tätigkeit (Praktikum, Bachelorarbeit, Werkstudent) im Bereich Bildverstehen (Fahrerassistenzsysteme auf Basis von Stereokameras) schulten anhand von praktischer Umsetzung die Methodik der Objekterkennung und das Arbeiten mit Kamerasystemen. 
+Die Begeisterung im Bereich der Computergrafik, Objekterkennung und Automation hat sich bei uns seit einigen Semestern als Schwerpunkt herausgestellt. Durch Vorlesungen wie Computergrafik I und II, Pattern Recognition, Objekterkennung/Computersehen, Künstliche Intelligenz und Data Mining konnten wir vielseitiges Wissen über Grafik bzw. Bildverarbeitung und Erkennung von Mustern im Allgemeinen, sammeln. 
+Mehrjährige Tätigkeit (Praktikum, Bachelorarbeit, Werkstudent) im Bereich Bildverstehen (Fahrerassistenzsysteme auf Basis von Stereokameras) schulten anhand von praktischer Umsetzung die Methodik der Objekterkennung und das Arbeiten mit Kamera basierten Systemen. 
 In diesen Arbeiten sowie in einer Studienarbeit im Bereich KI wurden auch Programmierfähigkeiten in C++ erworben. 
-Diese Erfahrung konnten wir erfolgreich in Softwarepraktika im Bereich Data Mining einsetzen. Begleitend zum Robotikpraktikum hören wir Design of Autonomous Systems welches sich mit mobilen Robotern befasst und eine gute Ergänzung bietet. 
+Diese Erfahrungen konnten wir erfolgreich in Softwarepraktika im Bereich Data Mining einsetzen. Begleitend zum Robotikpraktikum hören wir Design of Autonomous Systems welches sich mit mobilen Robotern befasst und eine gute Ergänzung bietet. 
 Zusätzlich können wir auf weitere Kentnisse mit Matlab, Python, Perl sowie R zurückgreifen.
-Diese Erfahrungen bilden Motivation und Antrieb für weitere Vertiefung und Spezialisierung in Bildverstehen, Robotik und verwandte Gebiete.
-Dieses Praktikum wäre für uns ein ideales Projekt um die Kentnisse in Software und Methodik mit Erfahrung in Robotik zu bereichern und erlerntes greifbar auszuprobieren. 
+Unser ständig wachsendes Interesse in Bildverstehen, KI und Grafik ist treibende Kraft und Motivation um eine Spezialisierung in einer fächerübergreifenden Disziplin wie Robotik zu meistern.
+Der Kinect Greifarm wäre für uns eine ideale Möglichkeit um die Kentnisse in Software und Methodik mit Erfahrung in Robotik zu bereichern und erlerntes greifbar auszuprobieren. 
 
 Nachfolgend sind die einzelnen Vorkentnisse noch einmal in Stichpunkten aufgelistst.
 
-Vorwissen Matthias:
-- Mehrjährig Werkstudent im Bereich Bildverstehen auf Basis von Stereokameras (C++)
-- Vorlesung im Bereich Mustererkennung: Pattern Recognition, Knowledge Discovery in Databases, Objekerkennung parallel zu Praktikum
+Relevantes Vorwissen Matthias:
+- Mehrjährige Erfahrung als Werkstudent im Bereich Bildverstehen auf Basis von Stereokameras (Daimler Research & Development, Environment Perception), mit Programmierung in C++.
+- Vorlesung im Bereich Mustererkennung: Pattern Recognition, Knowledge Discovery in Databases, Objekerkennung und maschinelles Bildverstehen parallel zu Praktikum
 - Bachelor Arbeit im Bereich Bildverstehen (Efficient Stereo-Based Vehicle Detection)
 - Programmiererfahrung in C++, Matlab, R, Python 
-- Fortgeschrittenen Praktikum Data Mining 
+- Fortgeschritten-Praktikum Data Mining 
 
-Vorwissen Manuel:
+Relevantes Vorwissen Manuel:
  - Seminar zum Thema Objekterkennung und Computersehen
  - Vorlesungen Computergraphik I und Computergraphik II
  - Knowledge Discovery in Databases
  - Studienarbeit im Bereich KI (Implementierung einer Backgammon-KI als Gegner für GNU-Backgammon)
  - Programmiererfahrung in C++, R, Python, Perl, Java
- - Fortgeschrittenen Praktikum Data Mining (TimeML: Annotation von Zeitintervallen)
+ - Fortgeschritten-Praktikum Data Mining (TimeML: Annotation von Zeitintervallen)
+
+
+
+
 
 
 ########### Bewerbung Schlange #############
@@ -52,21 +43,27 @@ Priorität: 2 (mittel)
 Team: Manuel Dewald & Matthias Hummel
 
 Master Angewandte Informatik, 3. Semester
-Fortgeschrittenen Praktikum erwünscht
+Fortgeschritten-Praktikum erwünscht
 
 Motivation:
+Im Bereich von sich selbst bewegenden Robotern haben wir beide bislang sehr wenig Erfahrung sammeln können, weshalb das Projekt mit der Schlange, welche komplexe Bewegungsmuster verwendet, für uns besonders spannend ist. Wir haben beide viele Erfahrung in der Entwicklung von Software in verschiedensten Programmiersprachen, wie C++, was in Werkstudentenjobs und Studienarbeiten zum Einsatz kommt, Python, was ebenfalls viel in der Werksstudentenumgebung bei SAP eingesetzt wird, aber auch in Sprachen wie R und Matlab. Die Implementierung und Simulation einer Fortbewegungsmöglichkeit für den Schlangenroboter würde uns beiden in einem neuen Umfeld wertvolle Erfahrungen einbringen.
 
 
-Vorwissen Matthias:
-- Mehrjährig Werkstudent in Bildverarbeitung (C++)
-- Vorlesung im Bereich Mustererkennund: Pattern Recognition, KDD?, Objekerkennung parallel zu Praktikum
-- Bachelor Arbeit im Bereich Bildverabreitung und Stereo Vision
-- Programmiererfahrung in C++, Matlab, R, Python 
+Relevantes Vorwissen Matthias:
+- Mehrjährige Erfahrung als Werkstudent in der Programmierung mit C++.
+- Erfahrung mit Matlab (durch mehrere Vorlesungen und rapid prototyping)
 
-Vorwissen Manuel:
- - Seminar zum Thema Objekterkennung und Computersehen
+Relevantes Vorwissen Manuel:
  - Vorlesungen Computergraphik I und Computergraphik II
- - Programmiererfahrung in C++, R, Python, Perl
+ - Studienarbeit im Bereich KI (Implementierung einer Backgammon-KI als Gegner für GNU-Backgammon)
+ - Programmiererfahrung in Matlab 
+
+
+
+
+
+
+
 
 ########### Bewerbung Plotter #############
 Praktikumsnummer: 04
@@ -74,15 +71,19 @@ Priorität: 3 (niedrigste)
 Team: Manuel Dewald & Matthias Hummel
 
 Master Angewandte Informatik, 3. Semester
-Fortgeschrittenen Praktikum erwünscht
+Fortgeschritten-Praktikum erwünscht
 
-Vorwissen Matthias:
-- Mehrjährig Werkstudent in Bildverarbeitung (C++)
-- Vorlesung im Bereich Mustererkennund: Pattern Recognition, KDD?, Objekerkennung parallel zu Praktikum
-- Bachelor Arbeit im Bereich Bildverabreitung und Stereo Vision
+Motivation:
+Die bisherigen Schwerpunkte in unserem Studium, Bildverstehen und Grafik, sind ausschlaggebend für unser Interesse an diesem Thema.
+
+
+Relevantes Vorwissen Matthias:
+- Mehrjährige Erfahrung als Werkstudent im Bereich Bildverstehen auf Basis von Stereokameras (Daimler Research & Development, Environment Perception), mit Programmierung in C++.
+- Vorlesung im Bereich Bildverarbeitung: Pattern Recognition, Objekerkennung und maschinelles Bildverstehen parallel zu Praktikum
+- Bachelor Arbeit im Bereich Bildverstehen (Efficient Stereo-Based Vehicle Detection)
 - Programmiererfahrung in C++, Matlab, R, Python 
 
-Vorwissen Manuel:
+Relevantes Vorwissen Manuel:
  - Seminar zum Thema Objekterkennung und Computersehen
  - Vorlesungen Computergraphik I und Computergraphik II
- - Programmiererfahrung in C++, R, Python, Perl
+ - Programmiererfahrung in C++, R, Python, Perl, Java
