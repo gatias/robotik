@@ -74,7 +74,7 @@ Master Angewandte Informatik, 3. Semester
 Fortgeschritten-Praktikum erwünscht
 
 Motivation:
-Die bisherigen Schwerpunkte in unserem Studium, Bildverstehen und Grafik, würden wir gerne mit einer Anwendung im Bereich Robotik kombinieren. 
+Die bisherigen Schwerpunkte in unserem Studium, Bildverstehen und Grafik, würden wir gerne mit einer Anwendung im Bereich Robotik kombinieren. Passend zum Thema des Praktikums haben wir bereits in Vorlesungen und Seminaren zu den Thema Computergrafik, Objekterkennung und Bildverstehen zahlreiche Filter-Algorithmen, beispielsweise zur Kantenbetonung/erkennung und zur Foreground/Background-Segmentation kennen gelernt.
 
 
 Relevantes Vorwissen Matthias:
