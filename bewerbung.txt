@@ -15,11 +15,11 @@ Zusätzlich können wir auf weitere Kentnisse mit Matlab, Python, Perl sowie R z
 Unser ständig wachsendes Interesse in Bildverstehen, KI und Grafik ist treibende Kraft und Motivation um eine Spezialisierung in einer fächerübergreifenden Disziplin wie Robotik zu meistern.
 Der Kinect Greifarm wäre für uns eine ideale Möglichkeit um die Kentnisse in Software und Methodik mit Erfahrungen in Robotik zu bereichern und erlerntes greifbar auszuprobieren. 
 
-Nachfolgend sind die einzelnen Vorkentnisse noch einmal in Stichpunkten aufgelistst.
+Nachfolgend sind die einzelnen Vorkentnisse noch einmal in Stichpunkten aufgelistet.
 
 Relevantes Vorwissen Matthias:
 - Mehrjährige Erfahrung als Werkstudent im Bereich Bildverstehen auf Basis von Stereokameras (Daimler Research & Development, Environment Perception), mit Programmierung in C++.
-- Vorlesung im Bereich Mustererkennung: Pattern Recognition, Knowledge Discovery in Databases, Objekerkennung und maschinelles Bildverstehen parallel zu Praktikum
+- Vorlesung im Bereich Mustererkennung: Pattern Recognition, Knowledge Discovery in Databases, Objekerkennung und maschinelles Bildverstehen parallel zum Praktikum
 - Bachelor Arbeit im Bereich Bildverstehen (Efficient Stereo-Based Vehicle Detection)
 - Programmiererfahrung in C++, Matlab, R, Python 
 - Fortgeschritten-Praktikum Data Mining 
@@ -74,12 +74,12 @@ Master Angewandte Informatik, 3. Semester
 Fortgeschritten-Praktikum erwünscht
 
 Motivation:
-Die bisherigen Schwerpunkte in unserem Studium, Bildverstehen und Grafik, sind ausschlaggebend für unser Interesse an diesem Thema.
+Die bisherigen Schwerpunkte in unserem Studium, Bildverstehen und Grafik, würden wir gerne mit einer Anwendung im Bereich Robotik kombinieren. 
 
 
 Relevantes Vorwissen Matthias:
 - Mehrjährige Erfahrung als Werkstudent im Bereich Bildverstehen auf Basis von Stereokameras (Daimler Research & Development, Environment Perception), mit Programmierung in C++.
-- Vorlesung im Bereich Bildverarbeitung: Pattern Recognition, Objekerkennung und maschinelles Bildverstehen parallel zu Praktikum
+- Vorlesung im Bereich Bildverarbeitung: Pattern Recognition, Objekerkennung und maschinelles Bildverstehen parallel zum Praktikum
 - Bachelor Arbeit im Bereich Bildverstehen (Efficient Stereo-Based Vehicle Detection)
 - Programmiererfahrung in C++, Matlab, R, Python 
 
