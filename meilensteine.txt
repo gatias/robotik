@@ -1,0 +1,4 @@
+ - Umgang mit Kinekt API und Robotersteuerung
+ - Entwicklung einer Befehlsbewegung/Wii Kontroller
+ - Umsetzen von Armbewegungen in Robotersteuerung
+ - Dokumentation der Arbeit
