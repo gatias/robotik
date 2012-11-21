@@ -1,4 +1,6 @@
- - Umgang mit Kinekt API und Robotersteuerung
- - Entwicklung einer Befehlsbewegung/Wii Kontroller
- - Umsetzen von Armbewegungen in Robotersteuerung
- - Dokumentation der Arbeit
+ 06.12.2012: Umgang mit der Kinekt API und Robotersteuerung
+ 21.12.2012: Entwicklung einer inversen Kinematik und Integration des Wii Controllers
+ 12.01.2013: Umsetzen von Armbewegungen in Robotersteuerung
+ 21.02.2013: Dokumentation und Vortrag
+
+
