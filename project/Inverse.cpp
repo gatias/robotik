@@ -1,7 +1,7 @@
 #include "Inverse.h"
 
 Inverse::Inverse(){
-
+	targetX=targetY=targetZ=0;
 }
 
 Inverse::~Inverse(){
@@ -48,6 +48,10 @@ void Inverse::setBounding(int angle, int min, int max){
 void Inverse::calcAngles(){
 	alpha=beta=gamma=delta=42;
 
+}
+
+float Inverse::deg2rad(float deg){
+	return deg*PI/180;
 }
 
 void Inverse::setBoneLength(int bone, float length){

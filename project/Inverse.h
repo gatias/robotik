@@ -10,6 +10,8 @@ class Inverse{
 		static const int BONE_ELL=6;
 		static const int BONE_HAND=7;
 
+		static const float PI=3.1415968;
+
 
 		Inverse();
 		virtual ~Inverse();
@@ -19,6 +21,8 @@ class Inverse{
 		void setBounding(int angle, int min, int max);
 		void calcAngles();
 		void setBoneLength(int bone, float length);
+
+		float deg2rad(float deg);
 
 	private:
 		float alpha;
