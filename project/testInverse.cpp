@@ -2,17 +2,21 @@
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
+#include "roboarm.h"
 
 using namespace std;
 
 int main(int argc, char** argv){
 	Inverse *inverse=new Inverse();
+	Roboarm *roboarm=new Roboarm();
 	
 	//Set angle ranges of robot
-	inverse->setBounding(Inverse::ANGLE_ALPHA,inverse->deg2rad(-90),inverse->deg2rad(45)); 
-	inverse->setBounding(Inverse::ANGLE_BETA,inverse->deg2rad(10),inverse->deg2rad(160));
-	inverse->setBounding(Inverse::ANGLE_GAMMA,inverse->deg2rad(10),inverse->deg2rad(170)); 
-	inverse->setBounding(Inverse::ANGLE_DELTA,0,inverse->deg2rad(180)); //foot
+	//inverse->setBounding(Inverse::ANGLE_ALPHA,inverse->deg2rad(roboarm->getMinDeg(Inverse::ANGLE_ALPHA)),inverse->deg2rad(45)); 
+	//inverse->setBounding(Inverse::ANGLE_BETA,inverse->deg2rad(10),inverse->deg2rad(160));
+	//inverse->setBounding(Inverse::ANGLE_GAMMA,inverse->deg2rad(10),inverse->deg2rad(170)); 
+	//inverse->setBounding(Inverse::ANGLE_DELTA,0,inverse->deg2rad(180)); //foot
+
+	inverse->setRoboarm(roboarm);
 	
 	//TODO: Arm ausmessen
 	//Set lengths of bones of robot

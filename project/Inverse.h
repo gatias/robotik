@@ -1,3 +1,6 @@
+#ifndef INVERSE_H
+#define INVERSE_H
+#include "roboarm.h"
 class Inverse{
 	public: 
 		static const int ANGLE_ALPHA=0;
@@ -15,7 +18,7 @@ class Inverse{
 
 		Inverse();
 		virtual ~Inverse();
-		
+
 		float getAngle(int angle);
 		void setPosition(float x, float y, float z);
 		void setBounding(int angle, int min, int max);
@@ -23,6 +26,8 @@ class Inverse{
 		void setBoneLength(int bone, float length);
 
 		float deg2rad(float deg);
+
+		void setRoboarm(Roboarm* arm);
 
 	private:
 		float alpha;
@@ -47,5 +52,8 @@ class Inverse{
 		float targetX;
 		float targetY;
 		float targetZ;
+
+		Roboarm* roboarm;
 		
 };
+#endif

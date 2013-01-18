@@ -9,6 +9,10 @@
 #include <iostream>
 #include <algorithm>
 #include "servoboard.h"
+#include <time.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 using namespace std;
 

@@ -1,4 +1,6 @@
 #include "roboarm.h"
+#include <stdlib.h>
+#include "Inverse.h"
 
 using namespace std;
 
@@ -15,10 +17,43 @@ Roboarm::Roboarm():
 		cout << "Verbindung konnte nicht aufgebaut werden ... " << endl;
 		exit(-1);
 	}
+	//set maximum and minimum values
+	//that can be sent to the robo
+	minRob[Inverse::ANGLE_ALPHA]=0.3;
+	maxRob[Inverse::ANGLE_ALPHA]=1;
+
+	minRob[Inverse::ANGLE_BETA]=0;
+	maxRob[Inverse::ANGLE_BETA]=0.8;
+
+	minRob[Inverse::ANGLE_GAMMA]=0;
+	maxRob[Inverse::ANGLE_GAMMA]=1;
+
+	minRob[Inverse::ANGLE_DELTA]=0;
+	maxRob[Inverse::ANGLE_DELTA]=0.84;
+
+	//set maximum and minimum values for the angles in degree
+	minDeg[Inverse::ANGLE_ALPHA]=-90;
+	maxDeg[Inverse::ANGLE_ALPHA]=45;
+
+	minDeg[Inverse::ANGLE_BETA]=10;
+	maxDeg[Inverse::ANGLE_BETA]=160;
+
+	minDeg[Inverse::ANGLE_GAMMA]=10;
+	maxDeg[Inverse::ANGLE_GAMMA]=170;
+
+	minDeg[Inverse::ANGLE_DELTA]=0;
+	maxDeg[Inverse::ANGLE_DELTA]=180;
 }
 
 Roboarm::~Roboarm() {
 	b.disconnect();
+}
+
+float Roboarm::getMinDeg(int angle){
+	return minDeg[angle];
+}
+float Roboarm::getMaxDeg(int angle){
+	return maxDeg[angle];
 }
 
 void Roboarm::reset (float right_x, float right_y, float right_z, float left_x, float left_y, float left_z) {
@@ -31,9 +66,15 @@ void Roboarm::reset (float right_x, float right_y, float right_z, float left_x, 
 	a.resetArm();
 }
 
+float Roboarm::deg2rob(int angle, float deg){
+	float rob=0;
+	
+	return rob;
+}
+
 void Roboarm::move(float x, float y, float z) {
 	b.servo[2].setPos( map2Coordinates(x, y, z) );
-	//update();
+//update();
 }
 
 void Roboarm::grab(float x, float y, float z) {
