@@ -1,5 +1,4 @@
 #include "Inverse.h"
-
 Inverse::Inverse(){
 	targetX=targetY=targetZ=0;
 }
@@ -21,6 +20,10 @@ void Inverse::setPosition(float x, float y, float z){
 	targetX=x;
 	targetY=y;
 	targetZ=z;
+}
+
+void Inverse::setRoboarm(Roboarm* arm){
+	roboarm=arm;
 }
 
 void Inverse::setBounding(int angle, int min, int max){

@@ -1,3 +1,6 @@
+#ifndef ROBOARM_H
+#define ROBOARM_H
+
 #include "servoboard.h"
 #include <iostream>
 #include <stdlib.h>
@@ -16,6 +19,9 @@ public:
 	void move(float x, float y, float z);
 	void grab(float x, float y, float z);
 	void update();
+	float deg2rob(int angle, float deg);
+	float getMinDeg(int angle);
+	float getMaxDeg(int angle);
 
 private:
 	float map2Coordinates(float x, float y, float z);
@@ -26,5 +32,9 @@ private:
 	float maxRightX;
 	float maxLeftY;
 	float maxLeftZ;
+	float minRob[4];
+	float maxRob[4];
+	float minDeg[4];
+	float maxDeg[4];
 };
-
+#endif
