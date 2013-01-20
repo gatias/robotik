@@ -1,0 +1,1 @@
+gcc lptest.c lpsolve/liblpsolve55.so -o lptest -Ilpsolve && ./lptest
