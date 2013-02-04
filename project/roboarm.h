@@ -17,7 +17,7 @@ public:
 
 	void reset(float right_x, float right_y, float right_z, float left_x, float left_y, float left_z);	
 	void move(float x, float y, float z);
-	void grab(float xl, float yl, float xr, float yr);
+	void grab(float lx, float ly, float rx, float ry);
 	void update();
 	float deg2rob(int angle, float deg);
 	float getMinDeg(int angle);
@@ -32,10 +32,10 @@ private:
 	Servoboard& b;
 	float maxLeftY;
 	float maxLeftZ;
-	float minRob[4];
-	float maxRob[4];
-	float minDeg[4];
-	float maxDeg[4];
+	float minRob[6];
+	float maxRob[6];
+	float minDeg[6];
+	float maxDeg[6];
 	float boneLength[4];
 	float currentAngle[4];
 	float threshold;
