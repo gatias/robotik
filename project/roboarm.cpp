@@ -92,6 +92,7 @@ float Roboarm::deg2rob(int angle, float deg){
 	if(deg<minDeg[angle])deg=minDeg[angle];
 
 	if(angle==Inverse::ANGLE_BETA)deg-=45;
+	if(angle==Inverse::ANGLE_DELTA)deg-=10;
 	rob=deg/(maxDeg[angle]-minDeg[angle])*(maxRob[angle]-minRob[angle]);
 
 	if(angle==Inverse::ANGLE_BETA)rob=1-rob;

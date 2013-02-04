@@ -4,6 +4,7 @@
 
 Inverse::Inverse(){
 	targetX=targetY=targetZ=0;
+	targetClawlX=targetClawlY=targetClawrX=targetClawrY=0;
 }
 
 Inverse::~Inverse(){
@@ -16,6 +17,8 @@ float Inverse::getAngle(int angle){
 		case ANGLE_BETA: return beta; break;
 		case ANGLE_GAMMA: return gamma; break;
 		case ANGLE_DELTA: return delta; break;
+		case ANGLE_EPSILON: return epsilon; break;
+		case ANGLE_ZETA: return zeta; break;
 	}
 }
 
@@ -101,7 +104,8 @@ void Inverse::calcAngles(){
 
 
 	// calculate claw angles
-	
+	// Delta
+	delta = abs(targetClawlX - targetClawrX); 
 }
 
 float Inverse::deg2rad(float deg){
