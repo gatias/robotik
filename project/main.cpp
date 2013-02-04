@@ -29,6 +29,7 @@
 #include <XnPropNames.h>
 #include "roboarm.h"
 #include <pthread.h>
+#include "Inverse.h"
 
 //---------------------------------------------------------------------------
 // Globals
@@ -74,13 +75,14 @@ XnBool g_bRecord = false;
 
 XnBool g_bQuit = false;
 
-
+//Declare Roboarm and Inverse Kinematics Object
 Roboarm* robo;
+Inverse* inverse;
 
 //Users for controlling
 XnUserID user1;
-XnUserID theUser;
 XnUserID user2;
+int userCount;
 bool init=false;
 
 //---------------------------------------------------------------------------
@@ -102,8 +104,8 @@ void CleanupExit()
 
 XnPoint3D getRightHandPosition(){
 	XnSkeletonJointPosition joint1, joint2;
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(theUser,  XN_SKEL_RIGHT_HAND,joint2);
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(theUser,  XN_SKEL_RIGHT_HIP,joint1);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_RIGHT_HAND,joint2);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_RIGHT_HIP,joint1);
 	XnPoint3D handpos,shoulderpos,respos;
 	handpos = joint2.position;
 	shoulderpos = joint1.position;
@@ -117,8 +119,8 @@ XnPoint3D getRightHandPosition(){
 
 XnPoint3D getLeftHandPosition(){
 	XnSkeletonJointPosition joint1, joint2;
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(theUser,  XN_SKEL_LEFT_HAND,joint2);
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(theUser,  XN_SKEL_LEFT_SHOULDER,joint1);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_LEFT_HAND,joint2);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_LEFT_SHOULDER,joint1);
 	XnPoint3D handpos,shoulderpos,respos;
 	handpos = joint2.position;
 	shoulderpos = joint1.position;
@@ -133,8 +135,11 @@ XnPoint3D getLeftHandPosition(){
 // Callback: New user was detected
 void XN_CALLBACK_TYPE User_NewUser(xn::UserGenerator& generator, XnUserID nId, void* pCookie)
 {
-	if(!init)
-		theUser=nId;
+	//Initialize the two users, needed to control the robot.
+	if(userCount==0)user1=nId;
+	else if(userCount==1)user2=nId;
+	else return;
+
 	XnUInt32 epochTime = 0;
 	xnOSGetEpochTime(&epochTime);
 	printf("%d New User %d\n", epochTime, nId);
@@ -417,6 +422,7 @@ int main(int argc, char **argv)
 	XnStatus nRetVal = XN_STATUS_OK;
 
  	robo = new Roboarm();
+ 	inverse = new Inverse();
 	robo->setMillisecondsPerMove(TIMER_MILLIS);
 
 	if (argc > 1)
