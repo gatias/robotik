@@ -17,7 +17,7 @@ Roboarm::Roboarm():
 		exit(-1);
 	}
 	// smoothing threshold in degree
-	threshold = 1.0; 
+	threshold = 2.0; 
 
 	//Time the robo gets for each move
 	millisecondsPerMove=500;
@@ -135,6 +135,7 @@ void Roboarm::move(float x, float y, float z) {
 	//inverse->setPosition(200,100,100);	
 	inverse->setPosition(x,y,z);	
 
+	// Calculate all Angles
 	inverse->calcAngles();
 	currentAngle[Inverse::ANGLE_ALPHA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ALPHA));
 	currentAngle[Inverse::ANGLE_BETA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA));
@@ -150,27 +151,27 @@ void Roboarm::move(float x, float y, float z) {
 	for(int i = 0; i < len; i++)
 	{
 		newAngle =  inverse->rad2deg(inverse->getAngle(i));
-		if(abs(currentAngle[i] - newAngle) < threshold)
+		if(abs(currentAngle[i] - newAngle) > threshold)
 		{
 			currentAngle[i] = newAngle;
 		}
 	}
 
-	b.servo[0].setPos(deg2rob(Inverse::ANGLE_ALPHA,inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ALPHA))));
+	b.servo[0].setPos(deg2rob(Inverse::ANGLE_ALPHA,currentAngle[Inverse::ANGLE_ALPHA]));
 	//printf("alpha: %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ALPHA)));
-	printf("beta:  %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA)));
-	printf("gamma: %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_GAMMA)));
-	printf("x: %f y: %f z:%f\n", x,y,z);
-	printf("---\n");
-	b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA))));
-	b.servo[2].setPos(deg2rob(Inverse::ANGLE_GAMMA,inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_GAMMA))));
+	//printf("beta:  %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA)));
+	//printf("gamma: %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_GAMMA)));
+	//printf("x: %f y: %f z:%f\n", x,y,z);
+	//printf("---\n");
+	b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,currentAngle[Inverse::ANGLE_BETA]));
+	b.servo[2].setPos(deg2rob(Inverse::ANGLE_GAMMA,currentAngle[Inverse::ANGLE_GAMMA]));
 	//b.servo[0].setPos(deg2rob(Inverse::ANGLE_ALPHA,90));
 	//deg2rob()
 	//b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,180));
 	//b.servo[2].setPos(deg2rob(Inverse::ANGLE_GAMMA,90));
-	printf("0: %f\n",b.servo[0].getPos());
-	printf("1: %f\n",b.servo[1].getPos());
-	printf("2: %f\n",b.servo[2].getPos());
+	//printf("0: %f\n",b.servo[0].getPos());
+	//printf("1: %f\n",b.servo[1].getPos());
+	///printf("2: %f\n",b.servo[2].getPos());
 	delete inverse;
 
 	//b.servo[2].setPos( map2Coordinates(x, y, z) );

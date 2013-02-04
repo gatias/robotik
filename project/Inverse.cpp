@@ -63,7 +63,7 @@ void Inverse::calcAngles(){
 	float tX=sqrt(targetX*targetX+targetZ*targetZ);
 	//tX=targetX;
 	if(tX>=230)tX=230;
-	printf("tX: %f\n",tX);
+	//printf("tX: %f\n",tX);
 	float e=(l1*l1 + tX*tX + targetY*targetY - l2*l2) / (2*l1*sqrt(targetY*targetY + tX*tX));
 	float d=(l2*l2 + l1*l1 - tX*tX - targetY*targetY) / (2*l2*l1);
 	//beta=acos(e);
@@ -76,14 +76,14 @@ void Inverse::calcAngles(){
 	if(e>1) e=1;
 	if(d<-1)d=-1;
 	if(d>1) d=1;
-	printf("e=%f acos(e)=%f\n",e,acos(e));
-	printf("d=%f acos(d)=%f\n",d,acos(d));
+	//printf("e=%f acos(e)=%f\n",e,acos(e));
+	//printf("d=%f acos(d)=%f\n",d,acos(d));
 	//Der da funktioniert:
 //	beta=atan2(tX,targetY) + atan2(e,sqrt(1-e*e));	
 	beta=atan(targetY/tX)+acos(e);
 	//beta=asin(tX/sqrt(targetY*targetY + tX*tX))-acos(e);
 	
-	printf("beta=%f - %f\n",asin(tX/sqrt(targetY*targetY + tX*tX)),acos(e));
+	//printf("beta=%f - %f\n",asin(tX/sqrt(targetY*targetY + tX*tX)),acos(e));
 	//Die da funktioniert als:
 	//gamma=atan2(sqrt(1+d*d),d);
 
