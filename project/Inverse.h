@@ -7,6 +7,8 @@ class Inverse{
 		static const int ANGLE_BETA=1;
 		static const int ANGLE_GAMMA=2;
 		static const int ANGLE_DELTA=3;
+		static const int ANGLE_EPSILON=4;
+		static const int ANGLE_ZETA=5;
 
 		static const int BONE_SHOULDER=0;
 		static const int BONE_HUMERUS=1;
@@ -21,6 +23,8 @@ class Inverse{
 
 		float getAngle(int angle);
 		void setPosition(float x, float y, float z);
+		void setClawPosition(float x, float y, float z);
+
 		void setBounding(int angle, int min, int max);
 		void calcAngles();
 		void setBoneLength(int bone, float length);
@@ -35,6 +39,8 @@ class Inverse{
 		float beta;
 		float gamma;
 		float delta;
+		float epsilon;
+		float zeta;
 
 		float alphaMax;
 		float alphaMin;
@@ -49,6 +55,10 @@ class Inverse{
 		float targetX;
 		float targetY;
 		float targetZ;
+
+		float targetClawX;
+		float targetClawY;
+		float targetClawZ;
 
 		Roboarm* roboarm;
 		

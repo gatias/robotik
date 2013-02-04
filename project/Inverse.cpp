@@ -25,6 +25,13 @@ void Inverse::setPosition(float x, float y, float z){
 	targetZ=z;
 }
 
+
+void Inverse::setClawPosition(float x, float y, float z){
+	targetClawX=x;
+	targetClawY=y;
+	targetClawZ=z;
+}
+
 void Inverse::setRoboarm(Roboarm* arm){
 	roboarm=arm;
 }
@@ -56,8 +63,7 @@ void Inverse::calcAngles(){
 	float l1=roboarm->getBoneLength(BONE_HUMERUS);
 	float l2=roboarm->getBoneLength(BONE_ELL);
 
-	//printf("l1 %f l1 %f l2 %f\n",l0,l1,l2);
-	
+	// Calculate robo arm position	
 	alpha=atan2(targetZ, targetX);
 	//alpha=atan(targetZ/targetX);
 	float tX=sqrt(targetX*targetX+targetZ*targetZ);
