@@ -166,6 +166,7 @@ void Roboarm::move(float x, float y, float z) {
 	//printf("---\n");
 	b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,currentAngle[Inverse::ANGLE_BETA]));
 	b.servo[2].setPos(deg2rob(Inverse::ANGLE_GAMMA,currentAngle[Inverse::ANGLE_GAMMA]));
+	b.servo[3].setPos(deg2rob(Inverse::ANGLE_DELTA,currentAngle[Inverse::ANGLE_DELTA]));
 	//b.servo[0].setPos(deg2rob(Inverse::ANGLE_ALPHA,90));
 	//deg2rob()
 	//b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,180));
