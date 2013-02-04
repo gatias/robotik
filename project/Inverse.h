@@ -23,7 +23,7 @@ class Inverse{
 
 		float getAngle(int angle);
 		void setPosition(float x, float y, float z);
-		void setClawPosition(float x, float y, float z);
+		void setClawPosition(float lx, float ly, float rx, float ry);
 
 		void setBounding(int angle, int min, int max);
 		void calcAngles();
@@ -56,10 +56,10 @@ class Inverse{
 		float targetY;
 		float targetZ;
 
-		float targetClawX;
-		float targetClawY;
-		float targetClawZ;
-
+		float targetClawlX;
+		float targetClawlY;
+		float targetClawrX;
+		float targetClawrY;
 		Roboarm* roboarm;
 		
 };

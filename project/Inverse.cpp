@@ -26,10 +26,11 @@ void Inverse::setPosition(float x, float y, float z){
 }
 
 
-void Inverse::setClawPosition(float x, float y, float z){
-	targetClawX=x;
-	targetClawY=y;
-	targetClawZ=z;
+void Inverse::setClawPosition(float lx, float ly, float rx, float ry){
+	targetClawlX=lx;
+	targetClawlY=ly;
+	targetClawrX=rx;
+	targetClawrY=ry;
 }
 
 void Inverse::setRoboarm(Roboarm* arm){
@@ -97,6 +98,10 @@ void Inverse::calcAngles(){
 	//gamma=atan2(d,-1*sqrt(1-d*d));
 	gamma=acos(d);
 
+
+
+	// calculate claw angles
+	
 }
 
 float Inverse::deg2rad(float deg){
