@@ -1,4 +1,7 @@
 #include "Inverse.h"
+#include "math.h"
+#include <stdio.h>
+
 Inverse::Inverse(){
 	targetX=targetY=targetZ=0;
 }
@@ -49,7 +52,44 @@ void Inverse::setBounding(int angle, int min, int max){
 }
 
 void Inverse::calcAngles(){
-	alpha=beta=gamma=delta=42;
+	float l0=roboarm->getBoneLength(BONE_SHOULDER);
+	float l1=roboarm->getBoneLength(BONE_HUMERUS);
+	float l2=roboarm->getBoneLength(BONE_ELL);
+
+	//printf("l1 %f l1 %f l2 %f\n",l0,l1,l2);
+	
+	alpha=atan2(targetZ, targetX);
+	//alpha=atan(targetZ/targetX);
+	float tX=sqrt(targetX*targetX+targetZ*targetZ);
+	//tX=targetX;
+	if(tX>=230)tX=230;
+	printf("tX: %f\n",tX);
+	float e=(l1*l1 + tX*tX + targetY*targetY - l2*l2) / (2*l1*sqrt(targetY*targetY + tX*tX));
+	float d=(l2*l2 + l1*l1 - tX*tX - targetY*targetY) / (2*l2*l1);
+	//beta=acos(e);
+//	gamma=acos(d);
+	//---fix den state mal so weil des is echt gut grad
+	//printf("e=%f acos(e)=%f\n",e,acos(e));
+	//printf("d=%f acos(d)=%f\n",d,acos(d));
+	//---
+	if(e<-1)e=-1;
+	if(e>1) e=1;
+	if(d<-1)d=-1;
+	if(d>1) d=1;
+	printf("e=%f acos(e)=%f\n",e,acos(e));
+	printf("d=%f acos(d)=%f\n",d,acos(d));
+	//Der da funktioniert:
+//	beta=atan2(tX,targetY) + atan2(e,sqrt(1-e*e));	
+	beta=atan(targetY/tX)+acos(e);
+	//beta=asin(tX/sqrt(targetY*targetY + tX*tX))-acos(e);
+	
+	printf("beta=%f - %f\n",asin(tX/sqrt(targetY*targetY + tX*tX)),acos(e));
+	//Die da funktioniert als:
+	//gamma=atan2(sqrt(1+d*d),d);
+
+	//Die da sollte richtig sein:
+	//gamma=atan2(d,-1*sqrt(1-d*d));
+	gamma=acos(d);
 
 }
 
@@ -57,8 +97,11 @@ float Inverse::deg2rad(float deg){
 	return deg*PI/180;
 }
 
+float Inverse::rad2deg(float rad){
+	return rad*(180/PI);
+}
 void Inverse::setBoneLength(int bone, float length){
-	switch(bone){
+	/*switch(bone){
 		case BONE_SHOULDER:
 			shoulderLength=length;
 			break;
@@ -71,6 +114,6 @@ void Inverse::setBoneLength(int bone, float length){
 		case BONE_HAND:
 			handLength=length;
 			break;
-	}
+	}*/
 
 }

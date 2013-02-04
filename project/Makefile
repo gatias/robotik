@@ -4,6 +4,16 @@ BIN_DIR = bin
 
 INC_DIRS = /home_nfs/2012ws_greifarm_kinect_b/kinect/openni/Platform/Linux-x86/Redist/Include /usr/include/ni
 
+#SRC_FILES = \
+#	testInverse.cpp \
+#	SceneDrawer.cpp	\
+#	actionfield.cpp \
+#	serialline.cpp \
+#	servo.cpp \
+#	servoboard.cpp \
+#	roboarm.cpp \
+#	Inverse.cpp 
+
 SRC_FILES = \
 	main.cpp \
 	SceneDrawer.cpp	\
@@ -11,6 +21,7 @@ SRC_FILES = \
 	serialline.cpp \
 	servo.cpp \
 	servoboard.cpp \
+	Inverse.cpp \
 	roboarm.cpp  
 
 

@@ -96,7 +96,7 @@ void CleanupExit()
 XnPoint3D getRightHandPosition(){
 	XnSkeletonJointPosition joint1, joint2;
 	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(theUser,  XN_SKEL_RIGHT_HAND,joint2);
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(theUser,  XN_SKEL_RIGHT_SHOULDER,joint1);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(theUser,  XN_SKEL_RIGHT_HIP,joint1);
 	XnPoint3D handpos,shoulderpos,respos;
 	handpos = joint2.position;
 	shoulderpos = joint1.position;
@@ -197,7 +197,7 @@ void Robo_Update_Callback(int) {
 		XnPoint3D pos_right=getRightHandPosition();
 		XnPoint3D pos_left=getLeftHandPosition();
 		robo->move(pos_right.X,pos_right.Y,pos_right.Z);
-		robo->grab(pos_left.X,pos_left.Y,pos_left.Z);
+	//	robo->grab(pos_left.X,pos_left.Y,pos_left.Z);
 		robo->update();
 	}
 }
