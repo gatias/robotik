@@ -23,7 +23,7 @@ public:
 	float getMinDeg(int angle);
 	float getMaxDeg(int angle);
 	float getBoneLength(int bone);
-	void setMillisecondsPerMove();
+	void setMillisecondsPerMove(int millis);
 private:
 	float map2Coordinates(float x, float y, float z);
 	float map2Grabbing(float y);

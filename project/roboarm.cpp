@@ -55,7 +55,7 @@ Roboarm::Roboarm():
 	boneLength[Inverse::BONE_HAND]=45;
 }
 
-void Roboarm::setMillisPerMove(int millis){
+void Roboarm::setMillisecondsPerMove(int millis){
 	millisecondsPerMove=millis;
 }
 
@@ -182,7 +182,7 @@ void Roboarm::grab(float x, float y, float z) {
 	b.servo[5].setPos(map2Wrist(z));
 }
 void Roboarm::update(){
-	b.updateSimultaneously(millisecondsPerMovement);
+	b.updateSimultaneously(millisecondsPerMove);
 }
 
 float Roboarm::map2Coordinates(float x, float y, float z) {

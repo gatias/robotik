@@ -79,6 +79,7 @@ Roboarm* robo;
 
 //Users for controlling
 XnUserID user1;
+XnUserID theUser;
 XnUserID user2;
 bool init=false;
 
@@ -416,7 +417,7 @@ int main(int argc, char **argv)
 	XnStatus nRetVal = XN_STATUS_OK;
 
  	robo = new Roboarm();
-	robo.setMillisecondsPerMove(TIMER_MILLIS);
+	robo->setMillisecondsPerMove(TIMER_MILLIS);
 
 	if (argc > 1)
 	{
