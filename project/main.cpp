@@ -416,6 +416,7 @@ int main(int argc, char **argv)
 	XnStatus nRetVal = XN_STATUS_OK;
 
  	robo = new Roboarm();
+	robo.setMillisecondsPerMove(TIMER_MILLIS);
 
 	if (argc > 1)
 	{

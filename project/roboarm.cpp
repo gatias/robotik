@@ -19,6 +19,9 @@ Roboarm::Roboarm():
 	// smoothing threshold in degree
 	threshold = 1.0; 
 
+	//Time the robo gets for each move
+	millisecondsPerMove=500;
+
 	//set maximum and minimum values
 	//that can be sent to the robo
 	minRob[Inverse::ANGLE_BETA]=0.3;
@@ -50,6 +53,10 @@ Roboarm::Roboarm():
 	boneLength[Inverse::BONE_HUMERUS]=154;
 	boneLength[Inverse::BONE_ELL]=185;
 	boneLength[Inverse::BONE_HAND]=45;
+}
+
+void Roboarm::setMillisPerMove(int millis){
+	millisecondsPerMove=millis;
 }
 
 Roboarm::~Roboarm() {
@@ -175,7 +182,7 @@ void Roboarm::grab(float x, float y, float z) {
 	b.servo[5].setPos(map2Wrist(z));
 }
 void Roboarm::update(){
-	b.updateSimultaneously(100);
+	b.updateSimultaneously(millisecondsPerMovement);
 }
 
 float Roboarm::map2Coordinates(float x, float y, float z) {
