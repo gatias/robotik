@@ -67,7 +67,7 @@ static EGLContext context = EGL_NO_CONTEXT;
 #define GL_WIN_SIZE_Y 480
 
 //Millis to wait between updates
-#define TIMER_MILLIS 500
+#define TIMER_MILLIS 200
 
 XnBool g_bPause = false;
 XnBool g_bRecord = false;
