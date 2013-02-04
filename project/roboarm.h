@@ -37,7 +37,7 @@ private:
 	float minDeg[6];
 	float maxDeg[6];
 	float boneLength[4];
-	float currentAngle[4];
+	float currentAngle[6];
 	float threshold;
 	int millisecondsPerMove;
 };

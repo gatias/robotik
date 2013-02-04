@@ -208,17 +208,18 @@ void Robo_Update_Callback(int) {
 		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
 		XnPoint3D pos_right=getRightHandPosition(user1);
 		robo->move(pos_right.X,pos_right.Y,pos_right.Z);
-
 		robo->update();
 	}
 }
 
 void Robo_Update_Callback_User2(int){
 	if(userCount==2){
+		XnPoint3D pos_right_user2;
+		XnPoint3D pos_left_user2;
 		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback_User2, 0);
-		XnPoint3D pos_right=getRightHandPosition(user2);
-		XnPoint3D pos_left=getLeftHandPosition(user2);
-		robo->grab(pos_left.X,pos_left.Y,pos_right.X,pos_right.Y);
+		pos_right_user2=getRightHandPosition(user2);
+		pos_left_user2=getLeftHandPosition(user2);
+		robo->grab(pos_left_user2.X,pos_left_user2.Y,pos_right_user2.X,pos_right_user2.Y);
 		robo->update();
 	}
 

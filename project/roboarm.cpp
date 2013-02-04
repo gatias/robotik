@@ -113,6 +113,7 @@ float Roboarm::deg2rob(int angle, float deg){
 
 	if(angle==Inverse::ANGLE_BETA)rob=1-rob;
 	if(angle==Inverse::ANGLE_DELTA)rob=1-rob;
+	if(angle==Inverse::ANGLE_ZETA)rob=1-rob;
 	return rob;
 }
 
@@ -188,6 +189,7 @@ void Roboarm::move(float x, float y, float z) {
 	//printf("0: %f\n",b.servo[0].getPos());
 	//printf("1: %f\n",b.servo[1].getPos());
 	///printf("2: %f\n",b.servo[2].getPos());
+	//update();
 	delete inverse;
 
 	//b.servo[2].setPos( map2Coordinates(x, y, z) );
@@ -206,8 +208,9 @@ void Roboarm::grab(float lx, float ly, float rx, float ry) {
 	b.servo[3].setPos(deg2rob(Inverse::ANGLE_DELTA,currentAngle[Inverse::ANGLE_DELTA]));
 	
 	currentAngle[Inverse::ANGLE_ZETA] = inverse->getAngle(Inverse::ANGLE_ZETA);
-	printf("zetaDeg: %f\n", deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA])) ;
+	printf("zeta out: %f\n", deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA])) ;
 	b.servo[4].setPos(deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA]));
+	//b.servo[4].setPos(0.8);
 	delete inverse;
 }
 void Roboarm::update(){
