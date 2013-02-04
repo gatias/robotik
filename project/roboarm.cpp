@@ -75,7 +75,7 @@ float Roboarm::getMaxDeg(int angle){
 	return maxDeg[angle];
 }
 
-void Roboarm::reset (float right_x, float right_y, float right_z, float left_x, float left_y, float left_z) {
+void Roboarm::reset () {
 	/*maxRightX = right_x;
 	maxLeftY = left_y;
 	maxLeftZ = left_x;
