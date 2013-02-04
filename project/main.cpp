@@ -156,6 +156,7 @@ void XN_CALLBACK_TYPE User_NewUser(xn::UserGenerator& generator, XnUserID nId, v
 void XN_CALLBACK_TYPE User_LostUser(xn::UserGenerator& generator, XnUserID nId, void* pCookie)
 {
 	XnUInt32 epochTime = 0;
+	userCount--;
 	xnOSGetEpochTime(&epochTime);
 	printf("%d Lost user %d\n", epochTime, nId);	
 }

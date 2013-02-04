@@ -27,6 +27,7 @@ class Inverse{
 
 		void setBounding(int angle, int min, int max);
 		void calcAngles();
+		void calcClawAngles();
 		void setBoneLength(int bone, float length);
 
 		float deg2rad(float deg);

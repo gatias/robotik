@@ -24,6 +24,10 @@ Roboarm::Roboarm():
 
 	//set maximum and minimum values
 	//that can be sent to the robo
+
+	minRob[Inverse::ANGLE_ALPHA]=0;
+	maxRob[Inverse::ANGLE_ALPHA]=0.84;
+
 	minRob[Inverse::ANGLE_BETA]=0.3;
 	maxRob[Inverse::ANGLE_BETA]=1;
 
@@ -33,10 +37,18 @@ Roboarm::Roboarm():
 	minRob[Inverse::ANGLE_DELTA]=0;
 	maxRob[Inverse::ANGLE_DELTA]=1;
 
-	minRob[Inverse::ANGLE_ALPHA]=0;
-	maxRob[Inverse::ANGLE_ALPHA]=0.84;
+	minRob[Inverse::ANGLE_EPSILON]=0;
+	maxRob[Inverse::ANGLE_EPSILON]=1;
+	
+	minRob[Inverse::ANGLE_ZETA]=0.5;
+	maxRob[Inverse::ANGLE_ZETA]=1;
+	
 
 	//set maximum and minimum values for the angles in degree
+
+	minDeg[Inverse::ANGLE_ALPHA]=0;
+	maxDeg[Inverse::ANGLE_ALPHA]=180;
+
 	minDeg[Inverse::ANGLE_BETA]=45;
 	maxDeg[Inverse::ANGLE_BETA]=180;
 
@@ -46,8 +58,12 @@ Roboarm::Roboarm():
 	minDeg[Inverse::ANGLE_DELTA]=10;
 	maxDeg[Inverse::ANGLE_DELTA]=170;
 
-	minDeg[Inverse::ANGLE_ALPHA]=0;
-	maxDeg[Inverse::ANGLE_ALPHA]=180;
+	minDeg[Inverse::ANGLE_EPSILON]=5;
+	maxDeg[Inverse::ANGLE_EPSILON]=180;
+	
+	minDeg[Inverse::ANGLE_ZETA]=0;
+	maxDeg[Inverse::ANGLE_ZETA]=50;
+	
 
 	boneLength[Inverse::BONE_SHOULDER]=78;
 	boneLength[Inverse::BONE_HUMERUS]=154;
@@ -96,6 +112,7 @@ float Roboarm::deg2rob(int angle, float deg){
 	rob=deg/(maxDeg[angle]-minDeg[angle])*(maxRob[angle]-minRob[angle]);
 
 	if(angle==Inverse::ANGLE_BETA)rob=1-rob;
+	if(angle==Inverse::ANGLE_DELTA)rob=1-rob;
 	return rob;
 }
 
@@ -123,7 +140,7 @@ void Roboarm::move(float x, float y, float z) {
 
 	//Verschieben des Koordinatenursprungs und Skalierung.
 	z=(z-200)/2;
-	y=y/2;
+	y=(y+200)/2;
 	x=(x-200)/2;
 	
 	if(x>max)x=max;
@@ -146,9 +163,8 @@ void Roboarm::move(float x, float y, float z) {
 	
 
 	// smoothing
-	int len = sizeof(currentAngle) / sizeof(currentAngle[0]);
 	float newAngle = 0.0;
-	for(int i = 0; i < len; i++)
+	for(int i = 0; i < 3; i++)
 	{
 		newAngle =  inverse->rad2deg(inverse->getAngle(i));
 		if(abs(currentAngle[i] - newAngle) > threshold)
@@ -165,7 +181,6 @@ void Roboarm::move(float x, float y, float z) {
 	//printf("---\n");
 	b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,currentAngle[Inverse::ANGLE_BETA]));
 	b.servo[2].setPos(deg2rob(Inverse::ANGLE_GAMMA,currentAngle[Inverse::ANGLE_GAMMA]));
-	b.servo[3].setPos(deg2rob(Inverse::ANGLE_DELTA,currentAngle[Inverse::ANGLE_DELTA]));
 	//b.servo[0].setPos(deg2rob(Inverse::ANGLE_ALPHA,90));
 	//deg2rob()
 	//b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,180));
@@ -179,9 +194,21 @@ void Roboarm::move(float x, float y, float z) {
 	//update();
 }
 
-void Roboarm::grab(float xl, float yl, float xr, float yr) {
-	b.servo[4].setPos(map2Grabbing(yr));
-	b.servo[5].setPos(map2Wrist(xr));
+void Roboarm::grab(float lx, float ly, float rx, float ry) {
+	Inverse *inverse=new Inverse();
+	inverse->setRoboarm(this);
+
+	ly=ly+200;
+	ry=ry+200;
+	inverse->setClawPosition(lx,ly,rx,ry);
+	inverse->calcClawAngles();
+	currentAngle[Inverse::ANGLE_DELTA] = inverse->getAngle(Inverse::ANGLE_DELTA);
+	b.servo[3].setPos(deg2rob(Inverse::ANGLE_DELTA,currentAngle[Inverse::ANGLE_DELTA]));
+	
+	currentAngle[Inverse::ANGLE_ZETA] = inverse->getAngle(Inverse::ANGLE_ZETA);
+	//printf("zetaDeg: %f\n", currentAngle[Inverse::ANGLE_ZETA]) ;
+	b.servo[4].setPos(deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA]));
+	delete inverse;
 }
 void Roboarm::update(){
 	b.updateSimultaneously(millisecondsPerMove);
