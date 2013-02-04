@@ -66,6 +66,9 @@ static EGLContext context = EGL_NO_CONTEXT;
 #define GL_WIN_SIZE_X 720
 #define GL_WIN_SIZE_Y 480
 
+//Millis to wait between updates
+#define TIMER_MILLIS 500
+
 XnBool g_bPause = false;
 XnBool g_bRecord = false;
 
@@ -73,7 +76,10 @@ XnBool g_bQuit = false;
 
 
 Roboarm* robo;
-XnUserID theUser;
+
+//Users for controlling
+XnUserID user1;
+XnUserID user2;
 bool init=false;
 
 //---------------------------------------------------------------------------
@@ -193,7 +199,7 @@ void XN_CALLBACK_TYPE UserCalibration_CalibrationEnd(xn::SkeletonCapability& cap
 
 void Robo_Update_Callback(int) {
 	if(init){
-		glutTimerFunc(100, Robo_Update_Callback, 0);
+		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
 		XnPoint3D pos_right=getRightHandPosition();
 		XnPoint3D pos_left=getLeftHandPosition();
 		robo->move(pos_right.X,pos_right.Y,pos_right.Z);
@@ -208,7 +214,7 @@ void *Robo_Init_Callback(void*) {
 	XnPoint3D pos_right=getRightHandPosition();
 	XnPoint3D pos_left=getLeftHandPosition();
 	robo->reset(pos_right.X,pos_right.Y,pos_right.Z, pos_left.X,pos_left.Y,pos_left.Z);
-	glutTimerFunc(100, Robo_Update_Callback, 0);
+	glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
 }
 
 
@@ -229,7 +235,6 @@ void XN_CALLBACK_TYPE UserCalibration_CalibrationComplete(xn::SkeletonCapability
 		pthread_t t1;
 		pthread_create(&t1, NULL, Robo_Init_Callback, NULL);
 		init=true;
-		//glutTimerFunc(1000, Robo_Init_Callback, 0);
 	}
 	else
 	{
