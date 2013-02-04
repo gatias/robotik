@@ -15,7 +15,7 @@ public:
 	Roboarm();
 	virtual ~Roboarm();
 
-	void reset(float right_x, float right_y, float right_z, float left_x, float left_y, float left_z);	
+	void reset();	
 	void move(float x, float y, float z);
 	void grab(float lx, float ly, float rx, float ry);
 	void update();

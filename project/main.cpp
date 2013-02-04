@@ -225,19 +225,6 @@ void Robo_Update_Callback_User2(int){
 }
 
 
-void *Robo_Init_Callback(void*) {
-	//sleep(1);
-	XnPoint3D pos_right=getRightHandPosition(user1);
-	XnPoint3D pos_left=getLeftHandPosition(user1);
-	robo->reset(pos_right.X,pos_right.Y,pos_right.Z, pos_left.X,pos_left.Y,pos_left.Z);
-	glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
-	glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback_User2, 0);
-}
-
-
-
-
-
 void XN_CALLBACK_TYPE UserCalibration_CalibrationComplete(xn::SkeletonCapability& capability, XnUserID nId, XnCalibrationStatus eStatus, void* pCookie)
 {
 	XnUInt32 epochTime = 0;
@@ -249,8 +236,14 @@ void XN_CALLBACK_TYPE UserCalibration_CalibrationComplete(xn::SkeletonCapability
 		printf("Calibration complete, start tracking user %d\n", nId);
 
 		g_UserGenerator.GetSkeletonCap().StartTracking(nId);
-		pthread_t t1;
-		pthread_create(&t1, NULL, Robo_Init_Callback, NULL);
+
+		//Start the two timer for getting new User Positions
+		XnPoint3D pos_right=getRightHandPosition(user1);
+		XnPoint3D pos_left=getLeftHandPosition(user1);
+		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
+		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback_User2, 0);
+		//
+
 		init=true;
 	}
 	else
@@ -428,12 +421,19 @@ void glInit (int * pargc, char ** argv)
 		return nRetVal;												\
 	}
 
+void *Robo_Init_Callback(void*) {
+	robo->reset();
+}
+
 int main(int argc, char **argv)
 {
 	XnStatus nRetVal = XN_STATUS_OK;
 
  	robo = new Roboarm();
 	robo->setMillisecondsPerMove(TIMER_MILLIS);
+	pthread_t t1;
+	pthread_create(&t1, NULL, Robo_Init_Callback, NULL);
+
 
 	if (argc > 1)
 	{
