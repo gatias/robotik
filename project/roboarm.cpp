@@ -206,7 +206,7 @@ void Roboarm::grab(float lx, float ly, float rx, float ry) {
 	b.servo[3].setPos(deg2rob(Inverse::ANGLE_DELTA,currentAngle[Inverse::ANGLE_DELTA]));
 	
 	currentAngle[Inverse::ANGLE_ZETA] = inverse->getAngle(Inverse::ANGLE_ZETA);
-	//printf("zetaDeg: %f\n", currentAngle[Inverse::ANGLE_ZETA]) ;
+	printf("zetaDeg: %f\n", deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA])) ;
 	b.servo[4].setPos(deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA]));
 	delete inverse;
 }
