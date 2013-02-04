@@ -53,6 +53,7 @@ Roboarm::Roboarm():
 	boneLength[Inverse::BONE_HUMERUS]=154;
 	boneLength[Inverse::BONE_ELL]=185;
 	boneLength[Inverse::BONE_HAND]=45;
+
 }
 
 void Roboarm::setMillisecondsPerMove(int millis){
@@ -118,9 +119,7 @@ void Roboarm::move(float x, float y, float z) {
 
 
 	Inverse *inverse=new Inverse();
-	Roboarm *roboarm=new Roboarm();
-
-	inverse->setRoboarm(roboarm);
+	inverse->setRoboarm(this);
 
 	//Verschieben des Koordinatenursprungs und Skalierung.
 	z=(z-200)/2;
@@ -180,9 +179,9 @@ void Roboarm::move(float x, float y, float z) {
 	//update();
 }
 
-void Roboarm::grab(float x, float y, float z) {
-	b.servo[4].setPos(map2Grabbing(y));
-	b.servo[5].setPos(map2Wrist(z));
+void Roboarm::grab(float xl, float yl, float xr, float yr) {
+	b.servo[4].setPos(map2Grabbing(yr));
+	b.servo[5].setPos(map2Wrist(xr));
 }
 void Roboarm::update(){
 	b.updateSimultaneously(millisecondsPerMove);
