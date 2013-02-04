@@ -29,7 +29,6 @@
 #include <XnPropNames.h>
 #include "roboarm.h"
 #include <pthread.h>
-#include "Inverse.h"
 
 //---------------------------------------------------------------------------
 // Globals
@@ -77,12 +76,11 @@ XnBool g_bQuit = false;
 
 //Declare Roboarm and Inverse Kinematics Object
 Roboarm* robo;
-Inverse* inverse;
 
 //Users for controlling
 XnUserID user1;
 XnUserID user2;
-int userCount;
+int userCount=0;
 bool init=false;
 
 //---------------------------------------------------------------------------
@@ -102,10 +100,10 @@ void CleanupExit()
 	exit (1);
 }
 
-XnPoint3D getRightHandPosition(){
+XnPoint3D getRightHandPosition(XnUserID user){
 	XnSkeletonJointPosition joint1, joint2;
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_RIGHT_HAND,joint2);
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_RIGHT_HIP,joint1);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user,  XN_SKEL_RIGHT_HAND,joint2);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user,  XN_SKEL_TORSO,joint1);
 	XnPoint3D handpos,shoulderpos,respos;
 	handpos = joint2.position;
 	shoulderpos = joint1.position;
@@ -117,10 +115,10 @@ XnPoint3D getRightHandPosition(){
 }
 
 
-XnPoint3D getLeftHandPosition(){
+XnPoint3D getLeftHandPosition(XnUserID user){
 	XnSkeletonJointPosition joint1, joint2;
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_LEFT_HAND,joint2);
-	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user1,  XN_SKEL_LEFT_SHOULDER,joint1);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user,  XN_SKEL_LEFT_HAND,joint2);
+	g_UserGenerator.GetSkeletonCap().GetSkeletonJointPosition(user,  XN_SKEL_TORSO,joint1);
 	XnPoint3D handpos,shoulderpos,respos;
 	handpos = joint2.position;
 	shoulderpos = joint1.position;
@@ -139,6 +137,7 @@ void XN_CALLBACK_TYPE User_NewUser(xn::UserGenerator& generator, XnUserID nId, v
 	if(userCount==0)user1=nId;
 	else if(userCount==1)user2=nId;
 	else return;
+	userCount++;
 
 	XnUInt32 epochTime = 0;
 	xnOSGetEpochTime(&epochTime);
@@ -206,21 +205,32 @@ void XN_CALLBACK_TYPE UserCalibration_CalibrationEnd(xn::SkeletonCapability& cap
 void Robo_Update_Callback(int) {
 	if(init){
 		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
-		XnPoint3D pos_right=getRightHandPosition();
-		XnPoint3D pos_left=getLeftHandPosition();
+		XnPoint3D pos_right=getRightHandPosition(user1);
 		robo->move(pos_right.X,pos_right.Y,pos_right.Z);
-	//	robo->grab(pos_left.X,pos_left.Y,pos_left.Z);
+
 		robo->update();
 	}
+}
+
+void Robo_Update_Callback_User2(int){
+	if(userCount==2){
+		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback_User2, 0);
+		XnPoint3D pos_right=getRightHandPosition(user2);
+		XnPoint3D pos_left=getLeftHandPosition(user2);
+		robo->grab(pos_left.X,pos_left.Y,pos_right.X,pos_right.Y);
+		robo->update();
+	}
+
 }
 
 
 void *Robo_Init_Callback(void*) {
 	//sleep(1);
-	XnPoint3D pos_right=getRightHandPosition();
-	XnPoint3D pos_left=getLeftHandPosition();
+	XnPoint3D pos_right=getRightHandPosition(user1);
+	XnPoint3D pos_left=getLeftHandPosition(user1);
 	robo->reset(pos_right.X,pos_right.Y,pos_right.Z, pos_left.X,pos_left.Y,pos_left.Z);
 	glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
+	glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback_User2, 0);
 }
 
 
@@ -422,7 +432,6 @@ int main(int argc, char **argv)
 	XnStatus nRetVal = XN_STATUS_OK;
 
  	robo = new Roboarm();
- 	inverse = new Inverse();
 	robo->setMillisecondsPerMove(TIMER_MILLIS);
 
 	if (argc > 1)

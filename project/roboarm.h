@@ -17,7 +17,7 @@ public:
 
 	void reset(float right_x, float right_y, float right_z, float left_x, float left_y, float left_z);	
 	void move(float x, float y, float z);
-	void grab(float x, float y, float z);
+	void grab(float xl, float yl, float xr, float yr);
 	void update();
 	float deg2rob(int angle, float deg);
 	float getMinDeg(int angle);
