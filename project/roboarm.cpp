@@ -135,6 +135,7 @@ void Roboarm::move(float x, float y, float z) {
 	//inverse->setPosition(200,100,100);	
 	inverse->setPosition(x,y,z);	
 
+	// Calculate all Angles
 	inverse->calcAngles();
 	currentAngle[Inverse::ANGLE_ALPHA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ALPHA));
 	currentAngle[Inverse::ANGLE_BETA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA));
