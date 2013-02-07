@@ -16,27 +16,56 @@ Medien
 Vorgehen
 </div>
 <div class="navlink filled" id="fourthlink">
-Nochn Link
+Projektverlauf
 </div>
 <div class="navlink empty"></div>
 <div class="navlink empty"></div>
 <div class="navlink empty"></div>
 </div>
 <div id="pagetitle">
-<h1>Wurstsalat!</h1>
+Herzlich Willkommen!
 </div>
 </div>
 <div id="body">
+<div id="firstcontent" class="content">
+asdf
+</div>
+<div id="secondcontent" class="content">
+jklö
+</div>
+<div id="thirdcontent" class="content">
+123
+</div>
+<div id="fourthcontent" class="content">
+456
+</div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/dojo.js" data-dojo-config="isDebug: true, async: true"> </script>
 <script>
 require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], function(baseFx, on,dom,fx,ready){
+	var activecontent="firstcontent";
+
+	function switchPage(pagename){
+		if(pagename==activecontent)return;
+		baseFx.animateProperty({
+			properties: {width:1000},
+			node: dom.byId(pagename)
+		}).play();
+		baseFx.animateProperty({
+			properties: {width:0},
+			node: dom.byId(activecontent)
+		}).play();
+		activecontent=pagename;
+	}
+
 	var firstButton=dom.byId("firstlink");
 	on(firstButton,"click",function(evt){
 		baseFx.animateProperty({
 			properties: {"background-color":"#64E4FE"},
 			node: dom.byId("pagetitle")
 		}).play();
+		switchPage("firstcontent");
+		dom.byId("pagetitle").innerHTML="Herzlich Willkommen!";
 	});
 
 	var secondButton=dom.byId("secondlink");
@@ -45,6 +74,8 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FE8864"},
 			node: dom.byId("pagetitle")
 		}).play();
+		switchPage("secondcontent");
+		dom.byId("pagetitle").innerHTML="Videos und Fotos";
 	});
 
 	var thirdButton=dom.byId("thirdlink");
@@ -53,6 +84,8 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FEDB64"},
 			node: dom.byId("pagetitle")
 		}).play();
+		switchPage("thirdcontent");
+		dom.byId("pagetitle").innerHTML="Was passiert im Hintergrund?";
 	});
 
 	var fourthButton=dom.byId("fourthlink");
@@ -61,6 +94,8 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FE7464"},
 			node: dom.byId("pagetitle")
 		}).play();
+		switchPage("fourthcontent");
+		dom.byId("pagetitle").innerHTML="Ablauf des Projekts?";
 	});
 });
 

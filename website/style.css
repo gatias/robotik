@@ -7,10 +7,12 @@
 	padding:0px;
 }
 #body{
-	width:1029px;
+	width:1001px;
 	min-height:800px;
 	background-color:#d1d1d1;
 	margin:auto;
+	padding:10px;
+	border:4px dashed #505050;
 }
 #navigation{
 	width:1029px;
@@ -20,12 +22,14 @@
 	margin:0px;
 }
 #pagetitle{
-	height:49px;
+	height:39px;
 	padding-left:30px;
-	background-color:#ffffff;
+	background-color:#64E4FE;
 	opacity:0.8;
 	margin:0px;
-	padding-top:10px;
+	padding-top:20px;
+	font-size:12pt;
+	font-weight:bold;
 }
 div.navlink{
 	width:180px;
@@ -34,6 +38,22 @@ div.navlink{
 	padding-left:20px;
 	padding-top:10px;
 	opacity:0.8;
+}
+div.content{
+	overflow:hidden;
+	float:left;
+}
+#firstcontent{
+	width:1000px;
+}
+#secondcontent{
+	width:0px;
+}
+#thirdcontent{
+	width:0px;
+}
+#fourthcontent{
+	width:0px;
 }
 .filled{
 	cursor:pointer;
@@ -55,7 +75,4 @@ div.navlink{
 }
 div,h1{
 	font-family:Sans-Serif;
-}
-h1{
-	font-size:12pt;
 }
