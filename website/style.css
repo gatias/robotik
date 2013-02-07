@@ -28,19 +28,18 @@
 	padding-top:10px;
 }
 div.navlink{
-	cursor:pointer;
 	width:180px;
 	height:27px;
 	margin-top:5px;
 	padding-left:20px;
 	padding-top:10px;
+	opacity:0.8;
 }
 .filled{
-	opacity:0.8;
+	cursor:pointer;
 }
 .empty{
 	background-color:#d1d1d1;
-	opacity:0.8;
 }
 #firstlink{
 	background-color:#64E4FE;
