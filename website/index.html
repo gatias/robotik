@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>2012ws_greifarm_kinect_b</title>
+<link rel="stylesheet" ="text/css" href="style.css">
+</head>
+<body>
+<div id="header">
+<div id="navigation">
+<div class="navlink filled" id="firstlink">
+Home
+</div>
+<div class="navlink filled" id="secondlink">
+Medien
+</div>
+<div class="navlink filled" id="thirdlink">
+Vorgehen
+</div>
+<div class="navlink filled" id="fourthlink">
+Nochn Link
+</div>
+<div class="navlink empty"></div>
+<div class="navlink empty"></div>
+<div class="navlink empty"></div>
+</div>
+<div id="pagetitle">
+<h1>Wurstsalat!</h1>
+</div>
+</div>
+<div id="body">
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/dojo.js" data-dojo-config="isDebug: true, async: true"> </script>
+<script>
+require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], function(baseFx, on,dom,fx,ready){
+	var firstButton=dom.byId("firstlink");
+	on(firstButton,"click",function(evt){
+		baseFx.animateProperty({
+			properties: {"background-color":"#64E4FE"},
+			node: dom.byId("pagetitle")
+		}).play();
+	});
+	var secondButton=dom.byId("secondlink");
+	on(secondButton,"click",function(evt){
+		baseFx.animateProperty({
+			properties: {"background-color":"#FE8864"},
+			node: dom.byId("pagetitle")
+		}).play();
+	});
+	var thirdButton=dom.byId("thirdlink");
+	on(thirdButton,"click",function(evt){
+		baseFx.animateProperty({
+			properties: {"background-color":"#FEDB64"},
+			node: dom.byId("pagetitle")
+		}).play();
+	});
+	var fourthButton=dom.byId("fourthlink");
+	on(fourthButton,"click",function(evt){
+		baseFx.animateProperty({
+			properties: {"background-color":"#FE7464"},
+			node: dom.byId("pagetitle")
+		}).play();
+	});
+});
+
+</script>
+</body>
+</html>
