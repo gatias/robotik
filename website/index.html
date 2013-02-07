@@ -48,7 +48,7 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 	function switchPage(pagename){
 		if(pagename==activecontent)return;
 		baseFx.animateProperty({
-			properties: {width:1000},
+			properties: {width:900},
 			node: dom.byId(pagename)
 		}).play();
 		baseFx.animateProperty({

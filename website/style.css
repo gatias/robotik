@@ -44,7 +44,7 @@ div.content{
 	float:left;
 }
 #firstcontent{
-	width:1000px;
+	width:900px;
 }
 #secondcontent{
 	width:0px;
@@ -75,4 +75,7 @@ div.content{
 }
 div,h1{
 	font-family:Sans-Serif;
+}
+h1{
+	font-size:12pt;
 }
