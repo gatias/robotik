@@ -69,6 +69,9 @@ Desweiteren arbeiteten wir 2 Möglichkeiten aus, wie wir die Bewegung des Handge
 da Bewegungen des Handgelenks von der Kinect mit OpenNI noch nicht erkannt werden können.<br>
 Wir entschieden uns dafür, die Steuerung des Handgelenks in einem 2-Benutzer-Modus zu ermöglichen und das Greifen über das zusammenführen der beiden Hände des Benutzers (sowohl im 1-Benutzer- als auch im 2-Benutzer-Modus) zu steuern.
 <h2>Umsetzung der Inversen Kinematik</h2>
+Schließlich haben wir die berechnete Inverse Kinematik in C++ umgesetzt.<br>
+Die Anwendung Derselben zeigte uns, dass noch einige Anpassungen am Koordinatensystem der Kinect gemacht werden mussten, um die Bedienung komfortabler und intuitiver zu gestalten.
+Nun spiegelt der Roboterarm die Bewegungen des Benutzers, D.h. bewegt der Benutzer seine Hand in Richtung des Roboters, so bewegt dieser die seine in Richtung des Benutzers. Hierdurch hat der Anwender eine bessere Einsicht in das Aktionsfeld des Roboterarms.
 
 </div>
 
