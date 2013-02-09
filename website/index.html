@@ -54,6 +54,7 @@ Manuel Dewald und Matthias Hummel
 </div>
 <div id="thirdcontent" class="content">
 <h1>Komponenten im Projekt</h1>
+<img src="komponenten.png" id="komponenten">
 <h1>Programmablauf</h1>
 <h1>Die Inverse Kinematik</h1>
 Damit eine intuitive Steuerung des Roboterarms möglich ist, verwenden wir das Prinzip der Inversen Kinematik. Dies bedeutet, dass eine gewünschte Ziel-Position (roter Punkt) des Roboters gegeben ist und aus dieser die Winkelstellungen berechnet werden müssen. Die Ziel-Position des Roboterarms ist die aktuelle Position des rechten Arms und wird von der Kinect geliefert.
@@ -147,7 +148,7 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FEDB64"},
 			node: dom.byId("pagetitle")
 		}).play();
-		switchPage("thirdcontent",2000);
+		switchPage("thirdcontent",2500);
 		dom.byId("pagetitle").innerHTML="Was passiert im Hintergrund?";
 	});
 
