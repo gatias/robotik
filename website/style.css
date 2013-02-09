@@ -8,7 +8,7 @@
 }
 #body{
 	width:1001px;
-	min-height:800px;
+	height:1500px;
 	background-color:#d1d1d1;
 	margin:auto;
 	padding:10px;
@@ -39,9 +39,16 @@ div.navlink{
 	padding-top:10px;
 	opacity:0.8;
 }
+img.portrait{
+	width:200px;
+	margin-right:20px;
+}
 div.content{
 	overflow:hidden;
 	float:left;
+}
+div.portrait{
+	margin-bottom:20px;
 }
 #firstcontent{
 	width:900px;
@@ -77,5 +84,11 @@ div,h1{
 	font-family:Sans-Serif;
 }
 h1{
+	margin-top:30px;
 	font-size:12pt;
+}
+h2{
+	margin-top:20px;
+	font-size:12pt;
+	font-style:italic;
 }
