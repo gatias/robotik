@@ -20,6 +20,9 @@ a:link, a:visited{
 a:hover{
 	color:#FE7464;
 }
+#komponenten{
+	width:500px;
+}
 #navigation{
 	width:1029px;
 	height:300px;
