@@ -24,18 +24,39 @@ Das Projekt
 <div class="navlink empty"></div>
 </div>
 <div id="pagetitle">
-Herzlich Willkommen!
+Steuerung eines Roboterarms über eine Microsoft Kinect
 </div>
 </div>
 <div id="body">
 <div id="firstcontent" class="content">
-asdf
+<h1>Herzlich Willkommen!</h1>
+Auf dieser Seite stellen wir, Manuel Dewald und Matthias Hummel, unser Projekt, welches wir im Rahmen eines Softwarepraktikums im <a href="http://ornella.iwr.uni-heidelberg.de/ROBOTICSLAB/">Robotics Lab</a> der Universität Heidelberg durchgeführt haben vor.<br>
+Betreut wurde unsere Arbeit von <a href="http://ornella.iwr.uni-heidelberg.de/ROBOTICSLAB/MEMBERS/MORE/index.php?l=de&mid=170">Felix Aller</a> und <a href="http://ornella.iwr.uni-heidelberg.de/ROBOTICSLAB/MEMBERS/MORE/index.php?l=de&mid=147">Prof. Dr. Katja Mombaur</a>.<br>
+<br>
+Das Ziel unseres Softwarepraktikums ist die möglichst intuitive Steuerung eines Roboterarms durch die Bewegungserkennung eines Microsoft Xbox 360 Kinect Sensors.<br>
+Auf den folgenden Seiten finden Sie einige Informationen über die Funktionsweise sowie die Ergebnisse unseres Projekts:<br>
+<br>
+<ul>
+<li> Auf der Seite Medien finden Sie einige Fotos und Videos von Arbeitsschritten und dem endgültigen Ergebnis.</li>
+<li>Unter "Vorgehen" können Sie sich darüber Informieren wie die Software im Hintergrund arbeitet, um das gewünschte Ergebnis zu liefern.</li>
+<li>Auf der Seite "Das Projekt" finden Sie die einzelnen Schritte und Meilensteine, welche wir in unserer Projektdurchführung durchliefen und Informationen zu uns als Team.</li>
+</ul>
+Wir wünschen viel Spaß auf dieser Seite,<br>
+Manuel Dewald und Matthias Hummel
 </div>
+
 <div id="secondcontent" class="content">
-jklö
+<h1>2 Benutzer steuern den Roboterarm</h1>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Piezk9yDLyA?rel=0" frameborder="0" allowfullscreen></iframe>
+<h1>1 Benutzer steuert den Roboterarm mit 2 Armen<h1>
+<h1>Erste Schritte: Einfaches Mapping von Handkoordinaten auf eine Roboterbewegung</h1>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/DlMF_I0ILXs?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 <div id="thirdcontent" class="content">
-123
+<h1>Komponenten im Projekt</h1>
+<h1>Programmablauf</h1>
+<h1>Die Inverse Kinematik</h1>
+<h1>Steuerung mit 2 Benutzern<h1>
 </div>
 <div id="fourthcontent" class="content">
 <h1>Das Team</h1>
@@ -82,14 +103,14 @@ Nun spiegelt der Roboterarm die Bewegungen des Benutzers, D.h. bewegt der Benutz
 require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], function(baseFx, on,dom,fx,ready){
 	var activecontent="firstcontent";
 
-	function switchPage(pagename){
+	function switchPage(pagename,h){
 		if(pagename==activecontent)return;
 		baseFx.animateProperty({
-			properties: {width:900},
+			properties: {width:900,height:h},
 			node: dom.byId(pagename)
 		}).play();
 		baseFx.animateProperty({
-			properties: {width:0},
+			properties: {width:0,height:500},
 			node: dom.byId(activecontent)
 		}).play();
 		activecontent=pagename;
@@ -101,8 +122,8 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#64E4FE"},
 			node: dom.byId("pagetitle")
 		}).play();
-		switchPage("firstcontent");
-		dom.byId("pagetitle").innerHTML="Herzlich Willkommen!";
+		switchPage("firstcontent",500);
+		dom.byId("pagetitle").innerHTML="Steuerung eines Roboterarms über eine Microsoft Kinect";
 	});
 
 	var secondButton=dom.byId("secondlink");
@@ -111,7 +132,7 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FE8864"},
 			node: dom.byId("pagetitle")
 		}).play();
-		switchPage("secondcontent");
+		switchPage("secondcontent",850);
 		dom.byId("pagetitle").innerHTML="Videos und Fotos";
 	});
 
@@ -121,7 +142,7 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FEDB64"},
 			node: dom.byId("pagetitle")
 		}).play();
-		switchPage("thirdcontent");
+		switchPage("thirdcontent",500);
 		dom.byId("pagetitle").innerHTML="Was passiert im Hintergrund?";
 	});
 
@@ -131,7 +152,7 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FE7464"},
 			node: dom.byId("pagetitle")
 		}).play();
-		switchPage("fourthcontent");
+		switchPage("fourthcontent",1300);
 		dom.byId("pagetitle").innerHTML="Ablauf des Projekts";
 	});
 });

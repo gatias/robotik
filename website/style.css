@@ -8,11 +8,17 @@
 }
 #body{
 	width:1001px;
-	height:1500px;
+	overflow:hidden;
 	background-color:#d1d1d1;
 	margin:auto;
 	padding:10px;
-	border:4px dashed #505050;
+	border:4px dashed #373737;
+}
+a:link, a:visited{
+	color:#000000;
+}
+a:hover{
+	color:#FE7464;
 }
 #navigation{
 	width:1029px;
@@ -52,15 +58,19 @@ div.portrait{
 }
 #firstcontent{
 	width:900px;
+	height:500px;
 }
 #secondcontent{
 	width:0px;
+	height:500px;
 }
 #thirdcontent{
 	width:0px;
+	height:500px;
 }
 #fourthcontent{
 	width:0px;
+	height:500px;
 }
 .filled{
 	cursor:pointer;
@@ -82,6 +92,7 @@ div.portrait{
 }
 div,h1{
 	font-family:Sans-Serif;
+	color:#373737;
 }
 h1{
 	margin-top:30px;
