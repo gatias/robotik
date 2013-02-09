@@ -49,6 +49,10 @@ img.portrait{
 	width:200px;
 	margin-right:20px;
 }
+img.drawings{
+	width:660px;
+	margin-right:20px;
+}
 div.content{
 	overflow:hidden;
 	float:left;
