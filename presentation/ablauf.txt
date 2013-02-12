@@ -1,0 +1,13 @@
+Ziel				D
+Komponenten
+	Kinect			D
+	Roboarm			D
+Vorgehen			
+	Programmaufbau		D
+	Inverse Kinematik	H
+	Single User mode	H
+	Multi User mode		H
+Fazit
+	Was ging gut?		H
+	Probleme		D
+	Zukunft			D

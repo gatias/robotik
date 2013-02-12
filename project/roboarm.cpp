@@ -208,15 +208,17 @@ bool Roboarm::grab(float lx, float ly, float rx, float ry) {
 	//b.servo[4].setPos(0.8);
 
 
-	// rotate grabber
-	if(rx <=0.0)
-		rx = 0.1;
+	if(multiplayer){
+		// rotate grabber
+		if(rx <=0.0)
+			rx = 0.1;
 
-	float height = (ly - ry)/2;
-	//Das hier ist noch um 90° verdreht, braucht noch kurz Hirnschmalz
-	currentAngle[Inverse::ANGLE_EPSILON] = 180-inverse->rad2deg(atan2(rx,height));
-	printf("epsilon out: %f\n", currentAngle[Inverse::ANGLE_EPSILON]);
-	b.servo[5].setPos(deg2rob(Inverse::ANGLE_EPSILON,currentAngle[Inverse::ANGLE_EPSILON]));
+		float height = (ly - ry)/2;
+		//Das hier ist noch um 90° verdreht, braucht noch kurz Hirnschmalz
+		currentAngle[Inverse::ANGLE_EPSILON] = 180-inverse->rad2deg(atan2(rx,height));
+		printf("epsilon out: %f\n", currentAngle[Inverse::ANGLE_EPSILON]);
+		b.servo[5].setPos(deg2rob(Inverse::ANGLE_EPSILON,currentAngle[Inverse::ANGLE_EPSILON]));
+	}
 
 
 	delete inverse;
