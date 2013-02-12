@@ -17,7 +17,7 @@ Roboarm::Roboarm():
 		exit(-1);
 	}
 	// smoothing threshold in degree
-	threshold = 2.0; 
+	threshold = 1.0; 
 
 	//Time the robo gets for each move
 	millisecondsPerMove=500;
@@ -34,7 +34,7 @@ Roboarm::Roboarm():
 	minRob[Inverse::ANGLE_GAMMA]=0;
 	maxRob[Inverse::ANGLE_GAMMA]=0.8;
 
-	minRob[Inverse::ANGLE_DELTA]=0;
+	minRob[Inverse::ANGLE_DELTA]=0.25;
 	maxRob[Inverse::ANGLE_DELTA]=1;
 
 	minRob[Inverse::ANGLE_EPSILON]=0;
@@ -69,6 +69,8 @@ Roboarm::Roboarm():
 	boneLength[Inverse::BONE_HUMERUS]=154;
 	boneLength[Inverse::BONE_ELL]=185;
 	boneLength[Inverse::BONE_HAND]=45;
+
+	multiplayer=false;
 
 }
 
@@ -118,8 +120,7 @@ float Roboarm::deg2rob(int angle, float deg){
 }
 
 
-
-void Roboarm::move(float x, float y, float z) {
+bool Roboarm::move(float x, float y, float z) {
 	z=z*-1;
 	//if(x<1) x=1;
 	//if(y<1) y=1;
@@ -132,7 +133,7 @@ void Roboarm::move(float x, float y, float z) {
 	if(z>maxRightZ)
 		maxRightZ=z;
 	*/
-	float max=boneLength[Inverse::BONE_HUMERUS]+boneLength[Inverse::BONE_ELL];
+	float max=230;
 
 
 
@@ -142,62 +143,54 @@ void Roboarm::move(float x, float y, float z) {
 	//Verschieben des Koordinatenursprungs und Skalierung.
 	z=(z-200)/2;
 	y=(y+200)/2;
-	x=(x-200)/2;
+	x=(x)/2;
 	
 	if(x>max)x=max;
 	if(x<-1*max)x=-1*max;
 	if(y>max)y=max;
 	if(z>max)z=max;
 	if(z<-1*max)z=-1*max;
-//	inverse->setPosition(-339,208,25);	
-	//inverse->setPosition(200,100,100);	
 	inverse->setPosition(x,y,z);	
 
 	// Calculate all Angles
 	inverse->calcAngles();
-	currentAngle[Inverse::ANGLE_ALPHA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ALPHA));
-	currentAngle[Inverse::ANGLE_BETA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA));
-	currentAngle[Inverse::ANGLE_GAMMA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_GAMMA));
-//	currentAngle[Inverse::ANGLE_DELTA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_DELTA));
-//	currentAngle[Inverse::ANGLE_EPSILON] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_EPSILON));
-//	currentAngle[Inverse::ANGLE_ZETA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ZETA));
+	//currentAngle[Inverse::ANGLE_ALPHA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ALPHA));
+	//currentAngle[Inverse::ANGLE_BETA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA));
+	//currentAngle[Inverse::ANGLE_GAMMA] = inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_GAMMA));
 	
-
 	// smoothing
+
+	//used to indicate that some angles changed
+	bool moved=false;
+
 	float newAngle = 0.0;
-	for(int i = 0; i < 3; i++)
-	{
+	for(int i = 0; i < 3; i++) {
 		newAngle =  inverse->rad2deg(inverse->getAngle(i));
-		if(abs(currentAngle[i] - newAngle) > threshold)
-		{
+		if(abs(currentAngle[i] - newAngle) > threshold) {
 			currentAngle[i] = newAngle;
+			moved=true;
 		}
 	}
 
 	b.servo[0].setPos(deg2rob(Inverse::ANGLE_ALPHA,currentAngle[Inverse::ANGLE_ALPHA]));
-	//printf("alpha: %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_ALPHA)));
-	//printf("beta:  %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_BETA)));
-	//printf("gamma: %f\n",inverse->rad2deg(inverse->getAngle(Inverse::ANGLE_GAMMA)));
-	//printf("x: %f y: %f z:%f\n", x,y,z);
-	//printf("---\n");
 	b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,currentAngle[Inverse::ANGLE_BETA]));
 	b.servo[2].setPos(deg2rob(Inverse::ANGLE_GAMMA,currentAngle[Inverse::ANGLE_GAMMA]));
-	//b.servo[0].setPos(deg2rob(Inverse::ANGLE_ALPHA,90));
-	//deg2rob()
-	//b.servo[1].setPos(deg2rob(Inverse::ANGLE_BETA,180));
-	//b.servo[2].setPos(deg2rob(Inverse::ANGLE_GAMMA,90));
-	//printf("0: %f\n",b.servo[0].getPos());
-	//printf("1: %f\n",b.servo[1].getPos());
-	///printf("2: %f\n",b.servo[2].getPos());
-	//update();
 	delete inverse;
-
-	//b.servo[2].setPos( map2Coordinates(x, y, z) );
-	//update();
+	
+	return moved;
+}
+void Roboarm::setMultiplayer(bool m){
+	multiplayer=m;
+}
+bool Roboarm::isMultiplayer(){
+	return multiplayer;
 }
 
-void Roboarm::grab(float lx, float ly, float rx, float ry) {
+bool Roboarm::grab(float lx, float ly, float rx, float ry) {
 	Inverse *inverse=new Inverse();
+	inverse->setAngle(Inverse::ANGLE_ALPHA,currentAngle[Inverse::ANGLE_ALPHA]);
+	inverse->setAngle(Inverse::ANGLE_BETA,currentAngle[Inverse::ANGLE_BETA]);
+	inverse->setAngle(Inverse::ANGLE_GAMMA,currentAngle[Inverse::ANGLE_GAMMA]);
 	inverse->setRoboarm(this);
 
 	ly=ly+200;
@@ -212,6 +205,9 @@ void Roboarm::grab(float lx, float ly, float rx, float ry) {
 	b.servo[4].setPos(deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA]));
 	//b.servo[4].setPos(0.8);
 	delete inverse;
+
+	//TODO: Check if Angles indeed changed
+	return true;
 }
 void Roboarm::update(){
 	b.updateSimultaneously(millisecondsPerMove);

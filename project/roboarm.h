@@ -16,8 +16,10 @@ public:
 	virtual ~Roboarm();
 
 	void reset();	
-	void move(float x, float y, float z);
-	void grab(float lx, float ly, float rx, float ry);
+	bool move(float x, float y, float z);
+	bool grab(float lx, float ly, float rx, float ry);
+	void setMultiplayer(bool m);
+	bool isMultiplayer();
 	void update();
 	float deg2rob(int angle, float deg);
 	float getMinDeg(int angle);
@@ -40,5 +42,6 @@ private:
 	float currentAngle[6];
 	float threshold;
 	int millisecondsPerMove;
+	bool multiplayer;
 };
 #endif
