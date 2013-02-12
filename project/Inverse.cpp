@@ -105,17 +105,23 @@ void Inverse::calcAngles(){
 
 }
 
+
 void Inverse::calcClawAngles(){
 
 	// calculate claw angles
-	// delta (maximum Height=600; maximum Angle = 170)
-	float targetY = targetClawrY - (targetClawrY-targetClawlY)/2;
-	delta = (targetY/600)*(roboarm->getMaxDeg(Inverse::ANGLE_DELTA) - roboarm->getMinDeg(Inverse::ANGLE_DELTA));
-	printf("delta: %f\n",delta);
+	if(roboarm->isMultiplayer()){
+		// delta (maximum Height=600; maximum Angle = 170) 
+		float targetY = targetClawrY - (targetClawrY-targetClawlY)/2;
+		delta = (targetY/600)*(roboarm->getMaxDeg(Inverse::ANGLE_DELTA) - roboarm->getMinDeg(Inverse::ANGLE_DELTA));
+		delta = (targetClawrY/600)*(roboarm->getMaxDeg(Inverse::ANGLE_DELTA) - roboarm->getMinDeg(Inverse::ANGLE_DELTA));
+	}else{
+		//Winkelsumme im Viereck
+		delta=360-(beta+gamma+90);
+	}
 	// zeta
 	zeta = abs(targetClawlX - targetClawrX); 
 	zeta = (zeta/400)*(roboarm->getMaxDeg(Inverse::ANGLE_ZETA) - roboarm->getMinDeg(Inverse::ANGLE_ZETA)) + 0.5;
-	printf("zeta: %f\n",zeta);	
+
 }
 
 float Inverse::deg2rad(float deg){
@@ -141,4 +147,24 @@ void Inverse::setBoneLength(int bone, float length){
 			break;
 	}*/
 
+}
+void Inverse::setAngle(int angle, int deg){
+	switch(angle){
+		case ANGLE_ALPHA: 
+			alpha=deg;
+			break;
+		case ANGLE_BETA: 
+			beta=deg;
+			break;
+		case ANGLE_GAMMA: 
+			gamma=deg;
+			break;
+		case ANGLE_DELTA: 
+			delta=deg;
+			break;
+		case ANGLE_ZETA: 
+			zeta=deg;
+			break;
+
+	}
 }

@@ -35,6 +35,8 @@ class Inverse{
 
 		void setRoboarm(Roboarm* arm);
 
+		void setAngle(int angle, int deg);
+
 	private:
 		float alpha;
 		float beta;

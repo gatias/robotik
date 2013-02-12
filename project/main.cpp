@@ -134,8 +134,12 @@ XnPoint3D getLeftHandPosition(XnUserID user){
 void XN_CALLBACK_TYPE User_NewUser(xn::UserGenerator& generator, XnUserID nId, void* pCookie)
 {
 	//Initialize the two users, needed to control the robot.
-	if(userCount==0)user1=nId;
-	else if(userCount==1)user2=nId;
+	if(userCount==0){
+		user1=nId;
+	}else if(userCount==1){
+		user2=nId;
+		robo->setMultiplayer(true);
+	}
 	else return;
 	userCount++;
 
@@ -207,8 +211,21 @@ void Robo_Update_Callback(int) {
 	if(init){
 		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
 		XnPoint3D pos_right=getRightHandPosition(user1);
-		robo->move(pos_right.X,pos_right.Y,pos_right.Z);
-		robo->update();
+
+		//Update only if some angles  changed;
+		bool moved=robo->move(pos_right.X,pos_right.Y,pos_right.Z);
+		bool grabed=false;
+
+		//One-Player-Mode
+		if(userCount<2){
+			XnPoint3D pos_left=getLeftHandPosition(user1);
+			grabed=robo->grab(pos_left.X,pos_left.Y,pos_right.X,pos_right.Y);
+			
+		}
+
+		if(moved || grabed){
+			robo->update();
+		}
 	}
 }
 
