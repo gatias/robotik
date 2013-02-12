@@ -108,8 +108,9 @@ void Inverse::calcAngles(){
 void Inverse::calcClawAngles(){
 
 	// calculate claw angles
-	// delta (maximum Height=600; maximum Angle = 170) 
-	delta = (targetClawrY/600)*(roboarm->getMaxDeg(Inverse::ANGLE_DELTA) - roboarm->getMinDeg(Inverse::ANGLE_DELTA));
+	// delta (maximum Height=600; maximum Angle = 170)
+	float targetY = targetClawrY - (targetClawrY-targetClawlY)/2;
+	delta = (targetY/600)*(roboarm->getMaxDeg(Inverse::ANGLE_DELTA) - roboarm->getMinDeg(Inverse::ANGLE_DELTA));
 	printf("delta: %f\n",delta);
 	// zeta
 	zeta = abs(targetClawlX - targetClawrX); 

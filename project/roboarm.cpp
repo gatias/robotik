@@ -109,11 +109,13 @@ float Roboarm::deg2rob(int angle, float deg){
 
 	if(angle==Inverse::ANGLE_BETA)deg-=45;
 	if(angle==Inverse::ANGLE_DELTA)deg-=10;
+	if(angle==Inverse::ANGLE_EPSILON)deg-=5;
 	rob=deg/(maxDeg[angle]-minDeg[angle])*(maxRob[angle]-minRob[angle]);
 
 	if(angle==Inverse::ANGLE_BETA)rob=1-rob;
 	if(angle==Inverse::ANGLE_DELTA)rob=1-rob;
 	if(angle==Inverse::ANGLE_ZETA)rob=1-rob;
+	if(angle==Inverse::ANGLE_EPSILON)rob=1-rob;
 	return rob;
 }
 
@@ -211,6 +213,19 @@ void Roboarm::grab(float lx, float ly, float rx, float ry) {
 	printf("zeta out: %f\n", deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA])) ;
 	b.servo[4].setPos(deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA]));
 	//b.servo[4].setPos(0.8);
+
+
+	// rotate grabber
+	if(rx <=0.0)
+		rx = 0.1;
+
+	float height = (ly - ry)/2;
+	//Das hier ist noch um 90° verdreht, braucht noch kurz Hirnschmalz
+	currentAngle[Inverse::ANGLE_EPSILON] = 180-inverse->rad2deg(atan2(rx,height));
+	printf("epsilon out: %f\n", currentAngle[Inverse::ANGLE_EPSILON]);
+	b.servo[5].setPos(deg2rob(Inverse::ANGLE_EPSILON,currentAngle[Inverse::ANGLE_EPSILON]));
+
+
 	delete inverse;
 }
 void Roboarm::update(){
