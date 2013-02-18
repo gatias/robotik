@@ -6,26 +6,34 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{url}
+\usepackage{lipsum}
 
 % Colors
-\definecolor{bggrey}{RGB}{230,230,230}
+%\definecolor{bggrey}{RGB}{230,230,230}
+%\definecolor{boxheader}{RGB}{81,173,113}
+%\definecolor{boxbg}{RGB}{181,181,181}
+\definecolor{white}{RGB}{255,255,255}
 \definecolor{boxheader}{RGB}{81,173,113}
-\definecolor{boxbg}{RGB}{181,181,181}
+\definecolor{iwred}{cmyk}{0,0.882,0.8323,0.3686}
 
 \begin{document}
 \begin{poster}
 %poster params
   {
   grid=false,
-  bgColorOne=bggrey,
+  bgColorOne=white,
   background=plain,
-  headerColorOne=boxheader,
+  headerColorOne=white,
   headershape=smallrounded,
   headerborder=none,
   headershade=plain,
   boxshade=plain,
-  boxColorOne=boxbg,
-  eyecatcher=false
+  %textfont=\sf,
+  headerfont=\Large\bf\textsf,
+  boxColorOne=white,
+  eyecatcher=false,
+  colspacing=0.2cm
   }
 % Eye-catcher
   { } 
@@ -34,21 +42,31 @@
 % Authors
   {
   \textsc{Interdisciplinary Center for Scientific Computing}  \vspace*{0.5em} \\
-  \small \textsc{Matthias.Hummel@stud.uni-heidelberg.de} \\
-  \small \textsc{Manuel.Dewald@stud.uni-heidelberg.de}
+
   }
 % Logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
-    \includegraphics[width=100px]{imgs/IWRlogo1.png}
+    \includegraphics[scale=0.5]{imgs/IWR_Logo.pdf}
   }
-  
+%  \hlinefill
+ \headerbox{\color{iwred}{\rule{1.0\textwidth}{4pt}}}{
+ name=headline, 
+% headerheight=0,
+ column=0,
+ row=0,
+ span=3,
+ textborder=none
+ }{}
+ 
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \headerbox{Problem}
+    \headerbox{Ziel des Praktikums}
     {
-    name=problem,
+    name=z11,
     column=0,
-    row=0,
-    textborder=none
+    row=1,
+    textborder=none,
+    below=headline
     }
     {
 Ziel des Praktikums ist die Steuerung eines Greifarms mithilfe einer Kinect.
@@ -62,41 +80,140 @@ Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt u
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \headerbox{Vorgehen}
     {
-    name=Vorgehen,
-    column=0,
-    below=problem,
+    name=z12,
+    column=1,
+    row=1,
+    below=headline,
     textborder=none
     }
     {
-\textbf{Komponenten}
+%\textbf{Komponenten}
 
 \includegraphics[width=\textwidth]{imgs/komponenten.png}
 
 Die Microsoft Kinect trackt die Bewegungen des Benutzers welche dann über das OpenNI-Interface ausgelesen werden können. Dieser Output wird für die Inverse Kinematik verwendet um den Roboter entsprechend zu steuern.
  }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \headerbox{Inverse Kinematik}
+ 
+  \headerbox{}
     {
-    name=kinematik,
-    column=1,
-    span=2,
-    row=0,
+    name=z13,
+    column=2,
+    row=2,
+    below=headline,
+    textborder=none
+    }
+    {
+%\textbf{Komponenten}
+
+ \lipsum[7-7]
+ }
+
+%%%%
+%Inverse Kinematik
+%%%
+ \headerbox{\color{iwred}{\rule{1.0\textwidth}{4pt}}}{
+ name=line2, 
+% headerheight=0,
+ column=0,
+ row=2,
+ span=3,
+ below=z12,
+ textborder=none
+ }{}
+
+    \headerbox{}
+    {
+    name=z21,
+    below=line2,
+    column=0,
+    row=2,
     textborder=none
     }
     {
         \includegraphics[width=\textwidth]{imgs/3d_robo.png}
+        \lipsum[1-1]
 
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Inverse Kinematik}
+    {
+    name=z22,
+    below=line2,
+    column=1,
+    row=2,
+    textborder=none
+    }
+    {
+      \lipsum[2-3]
+
+ }
+ \headerbox{}
+    {
+    name=z23,
+    below=line2,
+    column=2,
+    row=2,
+    textborder=none
+    }
+    {
+        \lipsum[4-5]
+
+ }
 
 
+
+ \headerbox{\color{iwred}{\rule{1.0\textwidth}{4pt}}}{
+ name=line3, 
+% headerheight=0,
+below=z21,
+ column=0,
+ %row=3,
+ span=3,
+ textborder=none
+ }
+ {}
+
+\headerbox{Team}
+    {
+    name=z31,
+    below=line3,
+    column=0,
+    %row=2,
+    textborder=none
+    }
+    {
+    \textsf{\textbf{Manuel Dewald}\\
+    Studiengang: Master Angewandte Informatik
+	manuel.dewald@stud.uni-heidelberg.de
+	}
+
+ }
+  \headerbox{}
+    {
+    name=z32,
+    below=line3,
+    column=1,
+    %row=2,
+    textborder=none
+    }
+    {
+    \textsf{\textbf{Matthias Hummel}\\
+    	Studiengang: Master Angewandte Informatik\\
+	matthias.hummel@stud.uni-heidelberg.de 
+	}
+ }
+ \headerbox{Betreuung}
+    {
+    name=z33,
+    below=line3,
+    column=2,
+    %row=2,
+    textborder=none
+    }
+    {
+    \textsf{\textbf{Felix Aller} (felix.aller@gmx.de),\\
+    \textbf{Prof. Dr. Katja Mombaur}\\(kmombaur@uni-hd.de)}
+  }
 
 
 \end{poster}
