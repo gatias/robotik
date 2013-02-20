@@ -119,8 +119,13 @@ void Inverse::calcClawAngles(){
 		delta=360-(beta+gamma+90);
 	}
 	// zeta
-	zeta = abs(targetClawlX - targetClawrX); 
-	zeta = (zeta/400)*(roboarm->getMaxDeg(Inverse::ANGLE_ZETA) - roboarm->getMinDeg(Inverse::ANGLE_ZETA)) + 0.5;
+	if(roboarm->isMultiplayer()){
+		zeta = abs(targetClawlX - targetClawrX); 
+		zeta = (zeta/400)*(roboarm->getMaxDeg(Inverse::ANGLE_ZETA) - roboarm->getMinDeg(Inverse::ANGLE_ZETA)) + 0.5;
+	}else{
+		zeta = abs(targetClawlX); 
+		zeta = (zeta/400)*(roboarm->getMaxDeg(Inverse::ANGLE_ZETA) - roboarm->getMinDeg(Inverse::ANGLE_ZETA)) + 0.5;
+	}
 
 }
 

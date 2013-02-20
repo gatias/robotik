@@ -145,7 +145,7 @@ bool Roboarm::move(float x, float y, float z) {
 	//Verschieben des Koordinatenursprungs und Skalierung.
 	z=(z-200)/2;
 	y=(y+200)/2;
-	x=(x)/2;
+	x=(x-200)/2;
 	
 	if(x>max)x=max;
 	if(x<-1*max)x=-1*max;
