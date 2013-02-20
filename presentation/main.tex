@@ -1,0 +1,41 @@
+\documentclass{beamer}
+\usepackage{beamerthemeHeidelberg} 
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{amsmath}
+
+
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{3pt}
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{\wideitemsep}\olditem}
+
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+\title{Kinect Greifarm}
+\subtitle{Intuitive Robotersteuerung mit einer Microsoft Kinect}
+\author{Matthias Hummel \& Manuel Dewald}
+\date{\today}
+\institute{Prof. Dr. Katja Mombaur \\Felix Aller \\ Interdisziplinäres Zentrum für Wissenschaftliches Rechnen \\ Universität Heidelberg}
+\titlegraphic{\includegraphics[scale=0.35]{imgs/IWR_Logo.pdf}}
+
+
+\begin{document}
+\frame{\titlepage}
+
+
+\section[Outline]{}
+\frame{\tableofcontents}
+
+\include{src/ziel}
+\include{src/komponenten}
+\include{src/vorgehen}
+\include{src/fazit}
+\include{src/quellen}
+
+\end{document}
