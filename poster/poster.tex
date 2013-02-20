@@ -65,15 +65,17 @@
     name=z11,
     column=0,
     row=1,
+    span=2,
     textborder=none,
     below=headline
     }
     {
-Ziel des Praktikums ist die Steuerung eines Greifarms mithilfe einer Kinect.
+    \includegraphics[width=\textwidth]{imgs/tmp_img.png}
+Ziel des Praktikums ist die Steuerung eines Greifarms mit Hilfe einer Kinect.
 Bestimmte Bewegungsmuster werden von der Kinect erkannt auf einen mechanischen Greifarm übertragen.
 Hierzu soll eine Schnittstelle zwischen der Kinect-API und der Steuerung des Roboters implementiert werden.
-Die Steuerung des Roboters soll hierbei möglichst Intuitiv mit den Armen durchführbar sein:
-Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt und kann anschließend mit wenig Übung den Roboterarm an die gewünschte Position bringen und Gegenstände greifen.
+Die Steuerung des Roboters soll hierbei möglichst Intuitiv mit den Armen durchführbar sein.
+%Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt und kann anschließend mit wenig Übung den Roboterarm an die gewünschte Position bringen und Gegenstände greifen.
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -81,7 +83,7 @@ Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt u
     \headerbox{Vorgehen}
     {
     name=z12,
-    column=1,
+    column=2,
     row=1,
     below=headline,
     textborder=none
@@ -94,19 +96,19 @@ Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt u
 Die Microsoft Kinect trackt die Bewegungen des Benutzers welche dann über das OpenNI-Interface ausgelesen werden können. Dieser Output wird für die Inverse Kinematik verwendet um den Roboter entsprechend zu steuern.
  }
  
-  \headerbox{}
-    {
-    name=z13,
-    column=2,
-    row=2,
-    below=headline,
-    textborder=none
-    }
-    {
-%\textbf{Komponenten}
-
- \lipsum[7-7]
- }
+%  \headerbox{}
+%    {
+%    name=z13,
+%    column=2,
+%    row=2,
+%    below=headline,
+%    textborder=none
+%    }
+%    {
+%%\textbf{Komponenten}
+%
+% \lipsum[7-7]
+% }
 
 %%%%
 %Inverse Kinematik
@@ -121,7 +123,7 @@ Die Microsoft Kinect trackt die Bewegungen des Benutzers welche dann über das O
  textborder=none
  }{}
 
-    \headerbox{}
+    \headerbox{Inverse Kinematik}
     {
     name=z21,
     below=line2,
@@ -130,12 +132,11 @@ Die Microsoft Kinect trackt die Bewegungen des Benutzers welche dann über das O
     textborder=none
     }
     {
-        \includegraphics[width=\textwidth]{imgs/3d_robo.png}
-        \lipsum[1-1]
+        \includegraphics[width=\textwidth]{imgs/inverseKinematik.png}
 
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\headerbox{Inverse Kinematik}
+\headerbox{}
     {
     name=z22,
     below=line2,
@@ -144,10 +145,34 @@ Die Microsoft Kinect trackt die Bewegungen des Benutzers welche dann über das O
     textborder=none
     }
     {
-      \lipsum[2-3]
+	Die Inverse Kinematik hat die Aufgabe aus der aktuellen 3D-Position des Spielers die Winkel des Roboterarms zu berechnen, damit der Greifer die Zielposition erreicht. Drei Winkel sind für dieses Problem zu berechnen: $\theta_0, \theta_1$ und $\theta_2$.
+	\begin{enumerate}
+	\item \textbf{$\theta_0$ - Drehung} 
+\begin{eqnarray*}
+	\theta_0 = atan2(z_c, x_c) \left[+ \pi \right]
+	\end{eqnarray*}
+	
+	\item \textbf{$\theta_1$ - Beugung erstes Gelenk}
+\begin{eqnarray*}
+\theta_1 &=& \alpha + \beta \\
+\theta_1 &=& atan2(y_c, z_c)\\ &+& atan2(E, \pm \sqrt{1-E^2}) \\
+\cos \beta &=& \frac{l_1^2 + y_c^2 + z_c^2 - l_2^2}{2*l_1*\sqrt{z_c^2 + y_c^2}} := E 
+	\end{eqnarray*}
+
+	\item \textbf{$\theta_2$ - Beugung zweites Gelenk}
+\begin{eqnarray*}
+\theta_2 &=& atan2(D, \pm \sqrt{1-D^2}) \\
+\cos \theta_2 &=& \frac{l_2^2 + l_1^2 - y_c^2 - z_c^2}{2*l_2*l_1} :=D
+\end{eqnarray*}	
+\end{enumerate}
+	
+Die Beugung und Drehung des Greifers übernimmt im Multi-Player Modus der zweite Spieler. Für eine einfache/intuitive Steuerung wird er im Single-Player automatisch senkrecht zur Arbeitsfläche ausgerichtet.
+	  
+
+
 
  }
- \headerbox{}
+ \headerbox{Spiel-Modi}
     {
     name=z23,
     below=line2,
@@ -156,7 +181,10 @@ Die Microsoft Kinect trackt die Bewegungen des Benutzers welche dann über das O
     textborder=none
     }
     {
-        \lipsum[4-5]
+ \textbf{Single-Player:}\\
+\includegraphics[width=\textwidth]{imgs/tmp_img2.png}
+ \textbf{Multi-Player:}\\
+\includegraphics[width=\textwidth]{imgs/tmp_img2.png}
 
  }
 
