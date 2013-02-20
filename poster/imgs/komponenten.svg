@@ -14,8 +14,8 @@
    height="297mm"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.2 r9819"
-   sodipodi:docname="komponenten.svg"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="komponenten.pdf"
    inkscape:export-filename="/Users/Matze/Documents/Uni/UHD/3_Semester/robotik/poster/imgs/komponenten.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
@@ -27,17 +27,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.96454605"
-     inkscape:cx="231.59788"
+     inkscape:cx="316.07791"
      inkscape:cy="817.32089"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="986"
-     inkscape:window-x="1440"
-     inkscape:window-y="22"
+     inkscape:window-width="1280"
+     inkscape:window-height="1000"
+     inkscape:window-x="1280"
+     inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <defs
      id="defs4">
@@ -335,7 +335,7 @@
        height="50"
        width="205.71428"
        id="rect2985"
-       style="fill:#a1141c;fill-opacity:1;stroke:none"
+       style="fill:#a32021;fill-opacity:1;stroke:none"
        inkscape:export-filename="/Users/Matze/Documents/Uni/UHD/3_Semester/robotik/poster/imgs/komponenten.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
@@ -365,7 +365,7 @@
        height="50"
        width="307.62833"
        id="rect2985-2"
-       style="fill:#a1131c;fill-opacity:1;stroke:none" />
+       style="fill:#a32021;fill-opacity:1;stroke:none" />
     <text
        sodipodi:linespacing="125%"
        id="text3765-3"
@@ -393,7 +393,7 @@
        height="50"
        width="394.98325"
        id="rect2985-8"
-       style="fill:#a1141c;fill-opacity:1;stroke:none" />
+       style="fill:#a32021;fill-opacity:1;stroke:none" />
     <text
        sodipodi:linespacing="125%"
        id="text3765-1"
@@ -494,7 +494,7 @@
        d="m 409.64256,374.29075 c 0,0 67.08386,10.82119 65.71429,35.71429 -2.2383,40.68322 -113.15301,46.23423 -113.15301,46.23423"
        style="fill:none;stroke:#373737;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lenda)" />
     <rect
-       style="fill:#a1141c;fill-opacity:1;stroke:none"
+       style="fill:#a32021;fill-opacity:1;stroke:none"
        id="rect3051"
        width="307.62833"
        height="50"
