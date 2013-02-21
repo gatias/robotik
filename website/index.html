@@ -37,7 +37,7 @@ Das Ziel unseres Softwarepraktikums ist die möglichst intuitive Steuerung eines
 Auf den folgenden Seiten finden Sie einige Informationen über die Funktionsweise sowie die Ergebnisse unseres Projekts:<br>
 <br>
 <ul>
-<li> Auf der Seite Medien finden Sie einige Fotos und Videos von Arbeitsschritten und dem endgültigen Ergebnis.</li>
+<li> Auf der Seite "Medien" finden Sie einige Videos von Arbeitsschritten und dem endgültigen Ergebnis.</li>
 <li>Unter "Vorgehen" können Sie sich darüber Informieren wie die Software im Hintergrund arbeitet, um das gewünschte Ergebnis zu liefern.</li>
 <li>Auf der Seite "Das Projekt" finden Sie die einzelnen Schritte und Meilensteine, welche wir in unserer Projektdurchführung durchliefen und Informationen zu uns als Team.</li>
 </ul>
@@ -58,16 +58,16 @@ Manuel Dewald und Matthias Hummel
 <img src="komponenten.png" id="komponenten">
 <h1>Programmablauf</h1>
 Die Eingabe des Benutzers erfolgt über eine Microsoft Kinect. Diese nimmt den Benutzer auf und mithilfe einer API zur Ansteuerung des Geräts (OpenNI) können die Positionen einzelner Körperteile ermittelt werden.<br>
-Um Nun die Zielposition der Roboterhand zu bestimmen legen wir ein Koordinatensystem fest. Der Ursprung des Koordinatensystems liegt 20cm nach vorne und rechts versetzt von der Position, welche von der Kinect als Torso erkannt wird. Die Verschiebung erleichtert die Bedienung erheblich, weil die Kinect bei Bewegungen nahe am Körper zu fehlerhaften Positionen neigt.<br>
+Um nun die Zielposition der Roboterhand zu bestimmen legen wir ein Koordinatensystem fest. Der Ursprung des Koordinatensystems liegt 20cm nach vorne und rechts versetzt von der Position, welche von der Kinect als Torso erkannt wird. Diese Verschiebung erleichtert die Bedienung erheblich, weil die Kinect bei Bewegungen nahe am Körper zu fehlerhaften Positionen neigt.<br>
 Nun berechnen wir die Zielposition, indem wir die Position der Hand des Benutzers relativ zu diesem Koordinatensystem berechnen. Wiederum um die Bedienung zu erleichtern wird die Zielposition in einem Verhältnis von 1:2 zur Handposition berechnet. D.h. wenn der Benutzer seine Hand um 2cm bewegt, bewegt sich der Roboterarm um 1cm. Hierdurch sind feinere Bewegungen intuitiv möglich.<br>
-Diese Zielposition muss nun noch in Winkelstellungen umgerechnet werden, da der Roboterarm für jeden Servomotor einen Winkel übertragen bekommt, welcher bei einem update anschließend eingenommen wird.<br>
-Hierzu werden die Winkel, welche die Inverse Kinematik (siehe nächster Abschnitt) berechnet auf Werte zwischen 0 und 1 abgebildet, abhängig davon welchen Winkel der Servomotor annehmen soll. Dieser Wert unterscheidet sich von Servomotor zu Servomotor am Roboterarm. Insgesamt verfügt der Arm über 6 Servomotoren die einzeln angesteuert werden können.<br>
+Diese Zielposition muss nun noch in Winkelstellungen umgerechnet werden, da der Roboterarm für jeden Servomotor einen Winkel übertragen bekommt, welcher bei einem update-Befehl anschließend eingenommen wird.<br>
+Hierzu werden die Winkel, welche die Inverse Kinematik (siehe nächster Abschnitt) berechnet auf Werte zwischen 0 und 1 abgebildet, abhängig davon, welchen Winkel der Servomotor annehmen soll. Dieser Wert unterscheidet sich von Servomotor zu Servomotor am Roboterarm. Insgesamt verfügt der Arm über 6 Servomotoren die einzeln angesteuert werden können.<br>
 <h1>Die Inverse Kinematik</h1>
-<i>Idee: Wie muss die Winkelstellung der Greifarms sein, damit die aktuelle Position der Hand erreicht wird?</i><br><br>
+<i>Idee: Wie muss die Winkelstellung des Greifarms sein, damit die aktuelle Position der Hand erreicht wird?</i><br><br>
 <div class="drawings">
 <img src="kinematikProblem.png" id="kinematikProblem">
 </div><br>
-Die gewünschte Ziel-Position (roter Punkt) eines Spielers ist gegeben und aus dieser werden die Winkelstellungen berechnet, dass der Greifarm die Ziel-Position erreicht. Als Ziel-Position werden die aktuellen Koordinaten rechten Arms verwendet, welche von der Kinect geliefert werden.<br>
+Die gewünschte Ziel-Position (roter Punkt) eines Spielers ist gegeben und aus dieser werden die Winkelstellungen berechnet, sodass der Greifarm die Ziel-Position erreicht. Als Ziel-Position werden die aktuellen Koordinaten des rechten Arms verwendet, welche von der Kinect geliefert werden.<br>
 
 <h2>Berechnung der Winkel</h2>
 Für dieses Problem kann eine geometrische Lösung berechnet werden.
@@ -98,7 +98,7 @@ Im Single-Player Modus wird der Greifer immer senkrecht zur Ebene ausgerichtet. 
 <img src="winkelsumme.png" id="winkelsumme">
 
 <h1>Steuerung mit einem Benutzer</h1>
-Um den Arm nun als einzelner Benutzer zu steuern, muss man zunächst die Kinect kalibrieren. Dafür stellt man sich in die sogenannte Psi-Pose, bis die Kinect das Skelett des Benutzers erkannt hat. Anschließend kann man mit seinem Rechten Arm die Position des Roboters bestimmen. Da der Roboter die Bewegungen schnell und gespiegelt ausführt, ist diese Steuerung sehr intuitiv möglich.<br>
+Um den Arm nun als einzelner Benutzer zu steuern, muss man zunächst die Kinect kalibrieren. Dafür stellt man sich in die sogenannte Psi-Pose, bis die Kinect das Skelett des Benutzers erkannt hat. Anschließend kann man mit seinem rechten Arm die Position des Roboters bestimmen. Da der Roboter die Bewegungen schnell und gespiegelt ausführt, ist diese Steuerung sehr intuitiv möglich.<br>
 <div class="drawings">
 <img src="singleplayer.png" class="drawings">
 </div><br>
@@ -107,9 +107,9 @@ Ein Beispiel für die Steuerung von einem Benutzer ist auf der Seite "Medien" zu
 
 <h1>Steuerung mit zwei Benutzern</h1>
 Der Multi-Player Modus ermöglicht es zwei Spielern gemeinsam den Greifarm zu steuern. Der erste Spieler steuert die Bewegung des Greifarms, also Rotation und Beugung der Gelenke 0-2. Der zweite Spieler ist ausschließlich für den Greifer zuständig. Das beinhaltet die Beugung, Rotation und öffnen/schließen des selbigen.<br>    
-Der Zwei-Benutzer-Modus wird automatisch initiiert, wenn ein zweiter Benutzer in das Sichtfeld der Kinect kommt und sich mit der Psi-Pose kalibriert.<br>
-Dieser übernimmt anschließend die Steuerung der "Hand" des Roboterarms. Er nimmt beide Hände vor den Körper und kann nun durch Auf- und Abbewegungen das Handgelenk nach oben und unten kippen. Um die Hand zu drehen, macht der Benutzer einfach eine Drehbewegung mit beiden Händen umeinander. Zum öffnen und schließen führt er die Hände zueinander bzw. voneinander weg.<br>
-Auch diese Steuerung ist sehr intuitiv. Ebenso wie vom Ein-Benutzer-Modus, befindet sich auch hiervon ein Beispielvideo auf der Medienseite.
+Der Modus wird automatisch initiiert, wenn ein zweiter Benutzer in das Sichtfeld der Kinect kommt und sich mit der Psi-Pose kalibriert.<br>
+Dieser übernimmt anschließend die Steuerung der "Hand" des Roboterarms. Er nimmt beide Hände vor den Körper und kann nun durch Auf- und Abbewegungen der Hände das "Handgelenk" nach oben und unten kippen. Um den Greifer zu drehen, macht der Benutzer einfach eine Drehbewegung mit beiden Händen umeinander. Zum Öffnen und Schließen führt er die Hände zueinander bzw. voneinander weg.<br>
+Auch diese Steuerung ist sehr intuitiv. Ebenso wie auch beim Ein-Benutzer-Modus, befindet sich auch hierzu ein Beispielvideo auf der Medienseite.
 
 <div class="drawings">
 <img src="multiplayer.png" class="drawings">
@@ -127,30 +127,32 @@ Wir, Matthias Hummel (links) und Manuel Dewald (rechts), sind beide im 3. Semest
 Die Begeisterung im Bereich der Computergrafik, Objekterkennung und Automation hat sich bei uns seit einigen Semestern als Schwerpunkt herausgestellt. Durch Vorlesungen wie Computergrafik I und II, Pattern Recognition, Objekterkennung/Computersehen, Künstliche Intelligenz und Data Mining konnten wir vielseitiges Wissen über Grafik bzw. Bildverarbeitung und Erkennung von Mustern im Allgemeinen, sammeln. <br>
 Mehrjährige Tätigkeit (Praktikum, Bachelorarbeit, Werkstudent) im Bereich Bildverstehen (Fahrerassistenzsysteme auf Basis von Stereokameras) schulten anhand von praktischer Umsetzung die Methodik der Objekterkennung und das Arbeiten mit kamerabasierten Systemen. <br>
 In diesen Arbeiten sowie in einer Studienarbeit im Bereich KI wurden auch Programmierfähigkeiten in C++ erworben. <br>
-Zusätzlich können wir auf weitere Kentnisse mit Matlab, Python, Perl sowie R zurückgreifen.<br>
-Der Kinect Greifarm wäre für uns eine ideale Möglichkeit um die Kentnisse in Software und Methodik mit Erfahrungen in Robotik zu bereichern und erlerntes greifbar auszuprobieren. <br>
+Der Kinect Greifarm war für uns eine ideale Möglichkeit um die Kentnisse in Software und Methodik mit Erfahrungen in Robotik zu bereichern und erlerntes greifbar auszuprobieren. <br>
 
 <h1>Unser Ziel</h1>
 Ziel des Praktikums ist die Steuerung eines Greifarms mithilfe einer Kinect.<br>
 Bestimmte Bewegungsmuster werden von der Kinect erkannt auf einen mechanischen Greifarm übertragen.<br>
 Hierzu soll eine Schnittstelle zwischen der Kinect-API und der Steuerung des Roboters implementiert werden.<br>
-Die Steuerung des Roboters soll hierbei möglichst Intuitiv mit den Armen durchführbar sein:<br>
+Die Steuerung des Roboters soll hierbei möglichst intuitiv mit den Armen durchführbar sein:<br>
 Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt und kann anschließend mit wenig Übung den Roboterarm an die gewünschte Position bringen und Gegenstände greifen.
 <h1>Der Projektverlauf/Meilensteine</h1>
 
 <h2>Einarbeitung in die benötigten Schnittstellen.</h2>
 Zunächst arbeiteten wir uns in die einzelnen Schnittstellen zur Kinect und zum Roboterarm ein. Als Schnittstelle zur Kinect verwenden wir OpenNI. Der Zugriff auf den Roboterarm erfolgt über Schnittstellen, welche sich im Verlauf vergangener Software-Praktika anderer Studenten immer weiter entwickelten.<br>
-Als erste Übung zur Zusammenarbeit von Kinect und Robotergreifarm implementierten wir bereits nach wenigen Arbeitsstunden eine einfache Steuerung eines einzelnen Gelenks über die Position des rechten Arms eines Benutzers.
+Als erste Übung zur Zusammenarbeit von Kinect und Robotergreifarm implementierten wir bereits nach wenigen Arbeitsstunden eine einfache Steuerung eines einzelnen Gelenks über die Position des rechten Arms eines Benutzers. (Siehe Seite "Medien")
 <h2>Theoretische Entwicklung einer Inversen Kinematik</h2>
 Zur Steuerung des Armes entschieden wir uns, eine inverse Kinematik zu entwickeln, welche aus der Position der Hand des Benutzers die nötigen Befehle für den Roboter errechnet, anstatt einzelne Gelenke des Menschlichen Armes auf den Roboter zu übertragen.<br>
 Hierzu sind einige geometrische Berechnungen nötig welche wir zunächst in zahlreichen Skizzen entwickelten und erst anschließend implementierten.<br>
 Desweiteren arbeiteten wir 2 Möglichkeiten aus, wie wir die Bewegung des Handgelenks des Roboters ermöglichen wollten,<br>
 da Bewegungen des Handgelenks von der Kinect mit OpenNI noch nicht erkannt werden können.<br>
-Wir entschieden uns dafür, die Steuerung des Handgelenks in einem 2-Benutzer-Modus zu ermöglichen und das Greifen über das zusammenführen der beiden Hände des Benutzers (sowohl im 1-Benutzer- als auch im 2-Benutzer-Modus) zu steuern.
 <h2>Umsetzung der Inversen Kinematik</h2>
 Schließlich haben wir die berechnete Inverse Kinematik in C++ umgesetzt.<br>
 Die Anwendung Derselben zeigte uns, dass noch einige Anpassungen am Koordinatensystem der Kinect gemacht werden mussten, um die Bedienung komfortabler und intuitiver zu gestalten.
-Nun spiegelt der Roboterarm die Bewegungen des Benutzers, D.h. bewegt der Benutzer seine Hand in Richtung des Roboters, so bewegt dieser die seine in Richtung des Benutzers. Hierdurch hat der Anwender eine bessere Einsicht in das Aktionsfeld des Roboterarms.
+Nun spiegelt der Roboterarm die Bewegungen des Benutzers, D.h. bewegt der Benutzer seine Hand in Richtung des Roboters, so bewegt dieser die Seine in Richtung des Benutzers. Hierdurch hat der Anwender eine bessere Einsicht in das Aktionsfeld des Roboterarms.
+<h2>Multi- und Single-Player-Modus, Feinschliff</h2>
+Um den Greifarm zu öffnen und zu schließen muss der Benutzer seine linke Hand nun zum Körper bzw. vom Körper wegführen.<br>
+Der Greifer wird nun im Single-Player-Modus immer senkrecht zum Boden zu gehalten, um das Greifen von Gegenständen möglichst einfach zu machen.<br>
+Wir entschieden uns dafür, die Steuerung des Handgelenks in einem 2-Benutzer-Modus zu ermöglichen und das Greifen über das zusammenführen der beiden Hände des zweiten Benutzers zu steuern.
 
 </div>
 
@@ -210,7 +212,7 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FE7464"},
 			node: dom.byId("pagetitle")
 		}).play();
-		switchPage("fourthcontent",1300);
+		switchPage("fourthcontent",1400);
 		dom.byId("pagetitle").innerHTML="Ablauf des Projekts";
 	});
 });
