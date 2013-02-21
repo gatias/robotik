@@ -75,7 +75,7 @@ Ziel des Praktikums ist die Steuerung eines Greifarms mit Hilfe einer Kinect.
 Bestimmte Bewegungsmuster werden von der Kinect erkannt auf einen mechanischen Greifarm übertragen.
 Hierzu soll eine Schnittstelle zwischen der Kinect-API und der Steuerung des Roboters implementiert werden.
 Die Steuerung des Roboters soll hierbei möglichst Intuitiv mit den Armen durchführbar sein.
-%Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt und kann anschließend mit wenig Übung den Roboterarm an die gewünschte Position bringen und Gegenstände greifen.
+Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt und kann anschließend mit wenig Übung den Roboterarm an die gewünschte Position bringen und Gegenstände greifen.
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -182,9 +182,17 @@ Die Beugung und Drehung des Greifers übernimmt im Multi-Player Modus der zweite
     }
     {
  \textbf{Single-Player:}\\
-\includegraphics[width=\textwidth]{imgs/tmp_img2.png}
+ Funktionen:
+\begin{itemize}
+\item Rechter Arm: Rotation um eigene Achse \& Beugung der Gelenke
+\item Linker Arm: Öffnen/Schließen des Greifers
+\item Greifer wird automatisch senkrecht zur Ebene ausgerichtet. \\
+Winkelsumme im Viereck: \\ $\theta_3 = 360-((\theta_1-90)+\theta_2+90)$
+\end{itemize}
+
+
  \textbf{Multi-Player:}\\
-\includegraphics[width=\textwidth]{imgs/tmp_img2.png}
+\includegraphics[width=\textwidth]{imgs/multiplayer.jpg}
 
  }
 
@@ -193,7 +201,7 @@ Die Beugung und Drehung des Greifers übernimmt im Multi-Player Modus der zweite
  \headerbox{\color{iwred}{\rule{1.0\textwidth}{4pt}}}{
  name=line3, 
 % headerheight=0,
-below=z21,
+below=z22,
  column=0,
  %row=3,
  span=3,
