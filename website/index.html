@@ -74,12 +74,28 @@ Für dieses Problem kann eine geometrische Lösung berechnet werden.
 <h4>Grundlagen: Kosinussatz</h4>
 Als Grundlage für die geometrische Lösung dient der Kosinussatz: <br><br>
 <img src="cos.png" id="cos">
+<br><br>
+Mit dem Kosinussatz können alle notwendigen Winkel in der Zeichnung berechnet werden. 
+<br>
+<img src="inverseKinematik.png" id="inverseKinematik">
 <br>
 
-<h4>Winkel: Theta 0</h4>
-<h4>Winkel: Theta 1</h4>
-<h4>Winkel: Theta 2</h4>
+<h4>Winkel: Rotation θ<sub>0</sub>:</h4>
+Der Winkel für die Rotation kann direkt aus den Ziel-Koordinaten berechnet werden.<br><br>
+<img src="formel_t0.png" id="formel_t0">
+<br>
+
+<h4>Winkel: Beugung θ<sub>1</sub></h4>
+Der zweite Winkel benötigt etwas mehr vorarbeit: <br><br>
+<img src="formel_t1.png" id="formel_t1">
+<br>
+
+<h4>Winkel: Beugung θ<sub>2</sub></h4>
+<img src="formel_t2.png" id="formel_t2">
+<br>
 <h4>Automatisches Ausrichten des Greifers</h4>
+Im Single-Player Modus wird der Greifer immer senkrecht zur Ebene ausgerichtet. Dieses Problem kann mit der Winkelsumme eines Rechtecks gelöst werden: <br><br>
+<img src="winkelsumme.png" id="winkelsumme">
 
 <h1>Steuerung mit einem Benutzer</h1>
 Um den Arm nun als einzelner Benutzer zu steuern, muss man zunächst die Kinect kalibrieren. Dafür stellt man sich in die sogenannte Psi-Pose, bis die Kinect das Skelett des Benutzers erkannt hat. Anschließend kann man mit seinem Rechten Arm die Position des Roboters bestimmen. Da der Roboter die Bewegungen schnell und gespiegelt ausführt, ist diese Steuerung sehr intuitiv möglich.<br>
@@ -184,7 +200,7 @@ require(["dojo/_base/fx", "dojo/on","dojo/dom", "dojo/fx", "dojo/domReady!"], fu
 			properties: {"background-color":"#FEDB64"},
 			node: dom.byId("pagetitle")
 		}).play();
-		switchPage("thirdcontent",2500);
+		switchPage("thirdcontent",3650);
 		dom.byId("pagetitle").innerHTML="Was passiert im Hintergrund?";
 	});
 

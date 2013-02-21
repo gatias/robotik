@@ -23,9 +23,23 @@ a:hover{
 #komponenten{
 	width:300px;
 }
-
-#cos{
+#formel_t0{
 	width:200px;
+}
+#formel_t1{
+	width:420px;
+}
+#formel_t2{
+	width:310px;
+}
+#winkelsumme{
+	width:310px;
+}
+#inverseKinematik{
+	width:700px;
+}
+#cos{
+	width:220px;
 }
 
 #kinematikProblem{
