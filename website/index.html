@@ -63,10 +63,11 @@ Nun berechnen wir die Zielposition, indem wir die Position der Hand des Benutzer
 Diese Zielposition muss nun noch in Winkelstellungen umgerechnet werden, da der Roboterarm für jeden Servomotor einen Winkel übertragen bekommt, welcher bei einem update anschließend eingenommen wird.<br>
 Hierzu werden die Winkel, welche die Inverse Kinematik (siehe nächster Abschnitt) berechnet auf Werte zwischen 0 und 1 abgebildet, abhängig davon welchen Winkel der Servomotor annehmen soll. Dieser Wert unterscheidet sich von Servomotor zu Servomotor am Roboterarm. Insgesamt verfügt der Arm über 6 Servomotoren die einzeln angesteuert werden können.<br>
 <h1>Die Inverse Kinematik</h1>
-Damit eine intuitive Steuerung des Roboterarms möglich ist, verwenden wir das Prinzip der Inversen Kinematik. Dies bedeutet, dass eine gewünschte Ziel-Position (roter Punkt) des Roboters gegeben ist und aus dieser die Winkelstellungen berechnet werden müssen. Die Ziel-Position des Roboterarms ist die aktuelle Position des rechten Arms und wird von der Kinect geliefert.
+Damit eine intuitive Steuerung des Roboterarms möglich ist, verwenden wir das Prinzip der Inversen Kinematik. Dies bedeutet, dass eine gewünschte Ziel-Position (roter Punkt) des Roboters gegeben ist und aus dieser die Winkelstellungen berechnet werden müssen. Die Ziel-Position des Roboterarms ist die aktuelle Position des rechten Arms und wird von der Kinect geliefert.</br>
 <div class="drawings">
-<img src="3d_robo.png" class="drawings">
-</div>
+<img src="kinematikProblem.png" id="kinematikProblem">
+</div></br>
+
 
 <h1>Steuerung mit einem Benutzer</h1>
 Um den Arm nun als einzelner Benutzer zu steuern, muss man zunächst die Kinect kalibrieren. Dafür stellt man sich in die sogenannte Psi-Pose, bis die Kinect das Skelett des Benutzers erkannt hat. Anschließend kann man mit seinem Rechten Arm die Position des Roboters bestimmen. Da der Roboter die Bewegungen schnell und gespiegelt ausführt, ist diese Steuerung sehr intuitiv möglich.<br>
@@ -75,8 +76,13 @@ Um den Arm nun als einzelner Benutzer zu steuern, muss man zunächst die Kinect 
 </div></br>
 Der Greifer des Roboterarms ist immer senkrecht zum Boden ausgerichtet um das Aufnehmen von Objekten zu ermöglichen. Um ihn zu öffnen oder zu schließen, muss der Benutzer seine Linke Hand in Richtung des Körpers bewegen, bzw. vom Körper entfernen.
 
-<h1>Steuerung mit zwei Benutzern<h1>
-Der Multi-Player Modus ermöglicht es zwei Spielern gemeinsam den Greifarm zu steuern. 
+<h1>Steuerung mit zwei Benutzern</h1>
+Der Multi-Player Modus ermöglicht es zwei Spielern gemeinsam den Greifarm zu steuern. Der erste Spieler steuert die Bewegung des Greifarms, also Rotation und Beugung der Gelenke 0-2. Der zweite Spieler ist ausschließlich für den Greifer zuständig. Das beinhaltet die Beugung, Rotation und öffnen/schließen des selbigen.</br>    
+
+<div class="drawings">
+<img src="multiplayer.png" class="drawings">
+</div>
+
 
 </div>
 <div id="fourthcontent" class="content">
