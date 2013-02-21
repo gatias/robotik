@@ -15,7 +15,10 @@
    id="svg3159"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="singleplayer.svg">
+   sodipodi:docname="singleplayer.svg"
+   inkscape:export-filename="/Users/Matze/Documents/Uni/UHD/3_Semester/robotik/presentation/imgs/singleplayer.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs3161">
     <inkscape:path-effect
@@ -832,7 +835,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.70710678"
      inkscape:cx="298.97063"
-     inkscape:cy="916.40845"
+     inkscape:cy="690.13428"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -849,7 +852,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
