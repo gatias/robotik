@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="komponenten.pdf"
+   sodipodi:docname="komponenten.svg"
    inkscape:export-filename="/Users/Matze/Documents/Uni/UHD/3_Semester/robotik/poster/imgs/komponenten.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.96454605"
-     inkscape:cx="316.07791"
-     inkscape:cy="817.32089"
+     inkscape:zoom="0.68203705"
+     inkscape:cx="30.285965"
+     inkscape:cy="719.80145"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -223,66 +223,6 @@
        y2="92.17141" />
     <filter
        inkscape:collect="always"
-       id="filter4107"
-       x="-0.044721165"
-       width="1.0894423"
-       y="-0.244245"
-       height="1.48849">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="4.701563"
-         id="feGaussianBlur4109" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter4111"
-       x="-0.042428256"
-       width="1.0848565"
-       y="-0.34652107"
-       height="1.6930421">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="6.6703129"
-         id="feGaussianBlur4113" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter4119"
-       x="-0.041404666"
-       width="1.0828093"
-       y="-0.43418627"
-       height="1.8683725">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="8.3578129"
-         id="feGaussianBlur4121" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter4123"
-       x="-0.042428256"
-       width="1.0848565"
-       y="-0.34652107"
-       height="1.6930421">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="6.6703129"
-         id="feGaussianBlur4125" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter4127"
-       x="-0.044721167"
-       width="1.0894423"
-       y="-0.24424496"
-       height="1.4884899">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="4.7015631"
-         id="feGaussianBlur4129" />
-    </filter>
-    <filter
-       inkscape:collect="always"
        id="filter4131"
        x="-0.044721167"
        width="1.0894423"
@@ -298,11 +238,59 @@
        xlink:href="#linearGradient3757-3-2"
        id="linearGradient4137"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(44.28571,-109.45115)"
+       gradientTransform="matrix(1,0,0,1.1413664,44.28571,-132.60566)"
        x1="253.78571"
        y1="168.59999"
        x2="262.94043"
        y2="92.17141" />
+    <filter
+       inkscape:collect="always"
+       id="filter3961">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.76260715"
+         id="feGaussianBlur3963" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3965">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.74627983"
+         id="feGaussianBlur3967" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3969">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.326637"
+         id="feGaussianBlur3971" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3973">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.0587798"
+         id="feGaussianBlur3975" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3977">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.0587798"
+         id="feGaussianBlur3979" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter3989">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.74627986"
+         id="feGaussianBlur3991" />
+    </filter>
   </defs>
   <metadata
      id="metadata7">
@@ -312,7 +300,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -355,7 +343,7 @@
        inkscape:connector-curvature="0"
        id="path3755"
        d="m 137.85715,107.07646 c 0,0 198.75882,43.1386 240.71428,15.00001 C 434.59883,84.50014 269.66434,83.59714 265.71429,86.36218 154.43781,84.58529 150.66764,97.63185 137.85715,107.07646 z"
-       style="opacity:0.25157233000000001;fill:url(#linearGradient3763);fill-opacity:1;stroke:none;filter:url(#filter4107)"
+       style="opacity:0.29999999999999999;fill:url(#linearGradient3763);fill-opacity:1;stroke:none;filter:url(#filter3965)"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
     <rect
@@ -382,7 +370,7 @@
        inkscape:connector-curvature="0"
        id="path3755-4"
        d="m 74.514744,357.62532 c 0,0 297.227026,43.1386 359.967876,15.00001 C 518.26686,335.049 271.62126,334.146 265.71429,336.91104 99.30972,335.13415 93.671754,348.18071 74.514744,357.62532 z"
-       style="opacity:0.225;fill:url(#linearGradient3057);fill-opacity:1;stroke:none;filter:url(#filter4123)"
+       style="opacity:0.29999999999999999;fill:url(#linearGradient3057);fill-opacity:1;stroke:none;filter:url(#filter3977)"
        inkscape:export-filename="/home/manuel/Dokumente/Uni/Semester_3/robotik/website/path3755-2.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
@@ -410,7 +398,7 @@
        inkscape:connector-curvature="0"
        id="path3755-0"
        d="m 20.22124,273.33959 c 0,0 381.62835,43.1386 462.18524,15.00001 C 589.98231,250.76327 273.29862,249.86027 265.71429,252.62531 52.05706,250.84842 44.81811,263.89498 20.22124,273.33959 z"
-       style="opacity:0.225;fill:url(#linearGradient3763-4);fill-opacity:1;stroke:none;filter:url(#filter4119)"
+       style="opacity:0.29999999999999999;fill:url(#linearGradient3763-4);fill-opacity:1;stroke:none;filter:url(#filter3969)"
        inkscape:export-filename="/home/manuel/Dokumente/Uni/Semester_3/robotik/website/path3755-2.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
@@ -457,7 +445,7 @@
        inkscape:connector-curvature="0"
        id="path3755-2-4"
        d="m 137.85715,443.33961 c 0,0 198.75882,43.1386 240.71428,15.00001 56.0274,-37.57634 -108.90709,-38.47934 -112.85714,-35.7143 -111.27648,-1.77689 -115.04665,11.26967 -127.85714,20.71429 z"
-       style="opacity:0.225;fill:url(#linearGradient3763-9-9);fill-opacity:1;stroke:none;filter:url(#filter4127)"
+       style="opacity:0.29999999999999999;fill:url(#linearGradient3763-9-9);fill-opacity:1;stroke:none;filter:url(#filter3989)"
        inkscape:export-filename="/home/manuel/Dokumente/Uni/Semester_3/robotik/website/path3755-2.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
@@ -516,7 +504,7 @@
        inkscape:export-ydpi="300"
        inkscape:export-xdpi="300"
        inkscape:export-filename="/home/manuel/Dokumente/Uni/Semester_3/robotik/website/path3755-2.png"
-       style="opacity:0.225;fill:url(#linearGradient3055);fill-opacity:1;stroke:none;filter:url(#filter4111)"
+       style="opacity:0.29999999999999999;fill:url(#linearGradient3055);fill-opacity:1;stroke:none;filter:url(#filter3973)"
        d="m 74.514744,193.62532 c 0,0 297.227026,43.1386 359.967876,15.00001 C 518.26686,171.049 271.62126,170.146 265.71429,172.91104 99.30972,171.13415 93.671754,184.18071 74.514744,193.62532 z"
        id="path3053"
        inkscape:connector-curvature="0"
@@ -531,8 +519,8 @@
        inkscape:export-ydpi="300"
        inkscape:export-xdpi="300"
        inkscape:export-filename="/home/manuel/Dokumente/Uni/Semester_3/robotik/website/path3755-2.png"
-       style="opacity:0.225;fill:url(#linearGradient4137);fill-opacity:1;stroke:none;filter:url(#filter4127)"
-       d="m 137.85715,39.33961 c 0,0 198.75882,43.1386 240.71428,15.00001 C 434.59883,16.76328 269.66434,15.86028 265.71429,18.62532 154.43781,16.84843 150.66764,29.89499 137.85715,39.33961 z"
+       style="opacity:0.29999999999999999;fill:url(#linearGradient4137);fill-opacity:1;stroke:none;filter:url(#filter3961)"
+       d="m 137.85715,37.219113 c 0,0 198.75882,49.236948 240.71428,17.120507 C 434.59883,11.451249 269.66434,10.420595 265.71429,13.576519 154.43781,11.548436 150.66764,26.439341 137.85715,37.219113 z"
        id="path4135"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cscc" />
