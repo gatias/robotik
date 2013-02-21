@@ -90,10 +90,8 @@ Der Benutzer stellt sich in den Steuerungsbereich, wird von der Kinect erkannt u
     }
     {
 %\textbf{Komponenten}
-
-\includegraphics[width=\textwidth]{imgs/komponenten.png}
-
 Die Microsoft Kinect trackt die Bewegungen des Benutzers welche dann über das OpenNI-Interface ausgelesen werden können. Dieser Output wird für die Inverse Kinematik verwendet um den Roboter entsprechend zu steuern.
+\includegraphics[width=\textwidth]{imgs/komponenten.png}
  }
  
 %  \headerbox{}
@@ -181,19 +179,23 @@ Die Beugung und Drehung des Greifers übernimmt im Multi-Player Modus der zweite
     textborder=none
     }
     {
- \textbf{Single-Player:}\\
- Funktionen:
+ \textbf{Single-Player:}\vspace*{0.2cm} \\ 
+Funktionen:
 \begin{itemize}
 \item Rechter Arm: Rotation um eigene Achse \& Beugung der Gelenke
 \item Linker Arm: Öffnen/Schließen des Greifers
-\item Greifer wird automatisch senkrecht zur Ebene ausgerichtet. \\
+\item Greifer wird automatisch senkrecht zur Ebene ausgerichtet. \vspace*{0.2cm}\\
 Winkelsumme im Viereck: \\ $\theta_3 = 360-((\theta_1-90)+\theta_2+90)$
 \end{itemize}
 
 
- \textbf{Multi-Player:}\\
-\includegraphics[width=\textwidth]{imgs/multiplayer.jpg}
-
+ \textbf{Multi-Player:} \vspace*{0.2cm}\\
+\includegraphics[width=\textwidth]{imgs/multiplayer_crop.png}\vspace*{0.05cm} \\
+Funktionen: 
+\begin{itemize}
+\item 1. Spieler: Rotation \& Beugung des Greifarms ($\theta_0, \theta_1, \theta_2$).
+\item 2. Spieler: Öffnen/Schließen \& Beugen des Greifers.
+\end{itemize}
  }
 
 
