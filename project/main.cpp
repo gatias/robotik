@@ -29,6 +29,7 @@
 #include <XnPropNames.h>
 #include "roboarm.h"
 #include <pthread.h>
+#include <sys/time.h>
 
 //---------------------------------------------------------------------------
 // Globals
@@ -81,6 +82,8 @@ Roboarm* robo;
 XnUserID user1;
 XnUserID user2;
 int userCount=0;
+pthread_t thread,t1;
+bool running=true;
 bool init=false;
 
 //---------------------------------------------------------------------------
@@ -91,6 +94,8 @@ extern xn::UserGenerator g_UserGenerator;
 
 void CleanupExit()
 {
+	running=false;
+	usleep(500);
 	g_scriptNode.Release();
 	g_DepthGenerator.Release();
 	g_UserGenerator.Release();
@@ -207,28 +212,45 @@ void XN_CALLBACK_TYPE UserCalibration_CalibrationEnd(xn::SkeletonCapability& cap
 	}
 }
 
-void Robo_Update_Callback(int) {
+void* Robo_Update_Callback(void*) {
+	struct timeval start,end;
 	if(init){
-		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
-		XnPoint3D pos_right=getRightHandPosition(user1);
+		while(running){
+			gettimeofday(&start,NULL);
+		//	glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
+			XnPoint3D pos_right=getRightHandPosition(user1);
 
-		//Update only if some angles  changed;
-		bool moved=robo->move(pos_right.X,pos_right.Y,pos_right.Z);
-		bool grabed=false;
+			//Update only if some angles  changed;
+			bool moved=robo->move(pos_right.X,pos_right.Y,pos_right.Z);
+			bool grabed=false;
 
-		//One-Player-Mode
-		if(userCount<2){
-			XnPoint3D pos_left=getLeftHandPosition(user1);
-			grabed=robo->grab(pos_left.X,pos_left.Y,pos_right.X,pos_right.Y);
-			
-		}
+			//One-Player-Mode
+			if(userCount<2){
+				XnPoint3D pos_left=getLeftHandPosition(user1);
+				grabed=robo->grab(pos_left.X,pos_left.Y,pos_right.X,pos_right.Y);
+			//Multiplayermode	
+			}else{
+				XnPoint3D pos_right_user2;
+				XnPoint3D pos_left_user2;
+				pos_right_user2=getRightHandPosition(user2);
+				pos_left_user2=getLeftHandPosition(user2);
+				grabed=robo->grab(pos_left_user2.X,pos_left_user2.Y,pos_right_user2.X,pos_right_user2.Y);
+				
+			}
 
-		if(moved || grabed){
-			robo->update();
+	//		if(moved || grabed){
+				//printf("update!\n");
+				robo->update();
+	//		}
+			gettimeofday(&end,NULL);
+			int timetosleep=TIMER_MILLIS*1000-((end.tv_sec*1000000+end.tv_usec)-(start.tv_sec*1000000+start.tv_usec));
+			//printf("time to sleep: %d\n",timetosleep);
+			usleep(timetosleep);
 		}
 	}
 }
 
+//Currently not used, instead the else cae in Robo_Update_Callback is used and the timer start is disabled in UserCalibration_CalibrationComplete
 void Robo_Update_Callback_User2(int){
 	if(userCount==2){
 		XnPoint3D pos_right_user2;
@@ -258,8 +280,9 @@ void XN_CALLBACK_TYPE UserCalibration_CalibrationComplete(xn::SkeletonCapability
 		//Start the two timer for getting new User Positions
 		XnPoint3D pos_right=getRightHandPosition(user1);
 		XnPoint3D pos_left=getLeftHandPosition(user1);
-		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
-		glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback_User2, 0);
+		if(!init)pthread_create(&thread,NULL,&Robo_Update_Callback, 0);
+		//glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback, 0);
+	//	glutTimerFunc(TIMER_MILLIS, Robo_Update_Callback_User2, 0);
 		//
 
 		init=true;
@@ -448,8 +471,7 @@ int main(int argc, char **argv)
 	XnStatus nRetVal = XN_STATUS_OK;
 
  	robo = new Roboarm();
-	robo->setMillisecondsPerMove(TIMER_MILLIS);
-	pthread_t t1;
+	robo->setMillisecondsPerMove(TIMER_MILLIS+300);
 	pthread_create(&t1, NULL, Robo_Init_Callback, NULL);
 
 

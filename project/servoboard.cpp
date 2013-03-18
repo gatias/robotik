@@ -71,7 +71,8 @@ void Servoboard::updateSimultaneously(int timeInMs) {
 		}
 		toSend << "T"<< timeInMs << " \n\r";
 		string str = toSend.str();
-		//std::cout << "tosend=" << str << "|||" << std::endl;
+//		std::cout << "tosend=" << str << "|||" << std::endl;
+		//if(!s->dataWaiting())
 		bool status = s->send(const_cast<char*>(str.c_str()), str.length());
 	}
 }

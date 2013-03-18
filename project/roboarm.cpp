@@ -17,7 +17,7 @@ Roboarm::Roboarm():
 		exit(-1);
 	}
 	// smoothing threshold in degree
-	threshold = 1.0; 
+	threshold = 5.0; 
 
 	//Time the robo gets for each move
 	millisecondsPerMove=500;
@@ -110,12 +110,12 @@ float Roboarm::deg2rob(int angle, float deg){
 	if(deg<minDeg[angle])deg=minDeg[angle];
 
 	if(angle==Inverse::ANGLE_BETA)deg-=45;
-	if(angle==Inverse::ANGLE_DELTA)deg-=10;
+	if(angle==Inverse::ANGLE_DELTA)deg+=85;
 	if(angle==Inverse::ANGLE_EPSILON)deg-=5;
 	rob=deg/(maxDeg[angle]-minDeg[angle])*(maxRob[angle]-minRob[angle]);
 
 	if(angle==Inverse::ANGLE_BETA)rob=1-rob;
-	if(angle==Inverse::ANGLE_DELTA)rob=1-rob;
+	if(angle==Inverse::ANGLE_GAMMA)rob=1-rob;
 	if(angle==Inverse::ANGLE_ZETA)rob=1-rob;
 	if(angle==Inverse::ANGLE_EPSILON)rob=1-rob;
 	return rob;
@@ -136,6 +136,7 @@ bool Roboarm::move(float x, float y, float z) {
 		maxRightZ=z;
 	*/
 	float max=230;
+	float ymax=400;
 
 
 
@@ -149,7 +150,7 @@ bool Roboarm::move(float x, float y, float z) {
 	
 	if(x>max)x=max;
 	if(x<-1*max)x=-1*max;
-	if(y>max)y=max;
+	if(y>ymax)y=ymax;
 	if(z>max)z=max;
 	if(z<-1*max)z=-1*max;
 	inverse->setPosition(x,y,z);	
@@ -203,7 +204,7 @@ bool Roboarm::grab(float lx, float ly, float rx, float ry) {
 	b.servo[3].setPos(deg2rob(Inverse::ANGLE_DELTA,currentAngle[Inverse::ANGLE_DELTA]));
 	
 	currentAngle[Inverse::ANGLE_ZETA] = inverse->getAngle(Inverse::ANGLE_ZETA);
-	printf("zeta out: %f\n", deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA])) ;
+	//printf("zeta out: %f\n", deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA])) ;
 	b.servo[4].setPos(deg2rob(Inverse::ANGLE_ZETA,currentAngle[Inverse::ANGLE_ZETA]));
 	//b.servo[4].setPos(0.8);
 
@@ -216,14 +217,13 @@ bool Roboarm::grab(float lx, float ly, float rx, float ry) {
 		float height = (ly - ry)/2;
 		//Das hier ist noch um 90° verdreht, braucht noch kurz Hirnschmalz
 		currentAngle[Inverse::ANGLE_EPSILON] = 180-inverse->rad2deg(atan2(rx,height));
-		printf("epsilon out: %f\n", currentAngle[Inverse::ANGLE_EPSILON]);
 		b.servo[5].setPos(deg2rob(Inverse::ANGLE_EPSILON,currentAngle[Inverse::ANGLE_EPSILON]));
 	}
+		//printf("gamma out: %f\n", currentAngle[Inverse::ANGLE_GAMMA]);
 
 
 	delete inverse;
 
-	//TODO: Check if Angles indeed changed
 	return true;
 }
 void Roboarm::update(){

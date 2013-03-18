@@ -23,6 +23,7 @@ public:
 	int clearWaitingData();
 private:
 	int fd;	
+	bool waiting;
 
 };
 
