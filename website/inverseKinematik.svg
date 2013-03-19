@@ -15,7 +15,7 @@
    version="1.1"
    inkscape:version="0.48.2 r9819"
    sodipodi:docname="inverseKinematik.svg"
-   inkscape:export-filename="/Users/Matze/Documents/Uni/UHD/3_Semester/robotik/poster/imgs/inverseKinematik.png"
+   inkscape:export-filename="/Users/Matze/Documents/Uni/UHD/3_Semester/robotik/website/inverseKinematik.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -304,10 +304,10 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1615"
-     inkscape:window-height="930"
-     inkscape:window-x="1606"
-     inkscape:window-y="38"
+     inkscape:window-width="1440"
+     inkscape:window-height="856"
+     inkscape:window-x="15"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true" />
@@ -319,7 +319,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -357,7 +357,7 @@
        sodipodi:cy="385.52304"
        sodipodi:rx="14.285714"
        sodipodi:ry="8.5714283"
-       d="m 239.99999,385.52304 a 14.285714,8.5714283 0 1 1 -28.57142,0 14.285714,8.5714283 0 1 1 28.57142,0 z"
+       d="m 239.99999,385.52304 c 0,4.73387 -6.39593,8.57143 -14.28571,8.57143 -7.88978,0 -14.28571,-3.83756 -14.28571,-8.57143 0,-4.73387 6.39593,-8.57143 14.28571,-8.57143 7.88978,0 14.28571,3.83756 14.28571,8.57143 z"
        transform="matrix(0.92928932,0,0,0.97053721,201.21495,519.29306)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none;marker-end:url(#Arrow2Mend)"
@@ -402,7 +402,7 @@
        sodipodi:cy="267.66592"
        sodipodi:rx="0.71428573"
        sodipodi:ry="0.71428573"
-       d="m 121.42857,267.66592 a 0.71428573,0.71428573 0 1 1 -1.42857,0 0.71428573,0.71428573 0 1 1 1.42857,0 z"
+       d="m 121.42857,267.66592 c 0,0.39449 -0.31979,0.71429 -0.71428,0.71429 -0.39449,0 -0.71429,-0.3198 -0.71429,-0.71429 0,-0.39449 0.3198,-0.71428 0.71429,-0.71428 0.39449,0 0.71428,0.31979 0.71428,0.71428 z"
        transform="matrix(14.535534,0,0,14.535534,-1534.1829,-3143.0538)" />
     <path
        inkscape:connector-curvature="0"
@@ -411,7 +411,7 @@
        style="opacity:0.8;fill:none;stroke:#142fcc;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <path
        transform="matrix(14.535534,0,0,14.535534,-1415.49,-3271.8482)"
-       d="m 121.42857,267.66592 a 0.71428573,0.71428573 0 1 1 -1.42857,0 0.71428573,0.71428573 0 1 1 1.42857,0 z"
+       d="m 121.42857,267.66592 c 0,0.39449 -0.31979,0.71429 -0.71428,0.71429 -0.39449,0 -0.71429,-0.3198 -0.71429,-0.71429 0,-0.39449 0.3198,-0.71428 0.71429,-0.71428 0.39449,0 0.71428,0.31979 0.71428,0.71428 z"
        sodipodi:ry="0.71428573"
        sodipodi:rx="0.71428573"
        sodipodi:cy="267.66592"
@@ -432,7 +432,7 @@
        sodipodi:cy="267.66592"
        sodipodi:rx="0.71428573"
        sodipodi:ry="0.71428573"
-       d="m 121.42857,267.66592 a 0.71428573,0.71428573 0 1 1 -1.42857,0 0.71428573,0.71428573 0 1 1 1.42857,0 z"
+       d="m 121.42857,267.66592 c 0,0.39449 -0.31979,0.71429 -0.71428,0.71429 -0.39449,0 -0.71429,-0.3198 -0.71429,-0.71429 0,-0.39449 0.3198,-0.71428 0.71429,-0.71428 0.39449,0 0.71428,0.31979 0.71428,0.71428 z"
        transform="matrix(14.535534,0,0,14.535534,-1342.2539,-3254.1705)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:5.3618989;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -601,7 +601,7 @@
        style="opacity:0.8;fill:none;stroke:#142fcc;stroke-width:11.27788639;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <path
        transform="matrix(15.129887,0,0,15.129887,-737.36743,-3262.6066)"
-       d="m 121.42857,267.66592 a 0.71428573,0.71428573 0 1 1 -1.42857,0 0.71428573,0.71428573 0 1 1 1.42857,0 z"
+       d="m 121.42857,267.66592 c 0,0.39449 -0.31979,0.71429 -0.71428,0.71429 -0.39449,0 -0.71429,-0.3198 -0.71429,-0.71429 0,-0.39449 0.3198,-0.71428 0.71429,-0.71428 0.39449,0 0.71428,0.31979 0.71428,0.71428 z"
        sodipodi:ry="0.71428573"
        sodipodi:rx="0.71428573"
        sodipodi:cy="267.66592"
@@ -637,7 +637,7 @@
          sodipodi:role="line"
          id="tspan3882-3"
          x="1435.2894"
-         y="1019.4532">X</tspan></text>
+         y="1019.4532">X'</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text3884-3"
@@ -722,7 +722,10 @@
        y="1038.9778"
        x="1260.1193"
        style="font-size:40.53754425px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-filename="/Users/Matze/Documents/Uni/UHD/3_Semester/robotik/website/inverseKinematik.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          y="1038.9778"
          x="1260.1193"
          id="tspan4669"
@@ -730,7 +733,7 @@
            style="font-size:23.83075905px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
            id="tspan4671"><tspan
    style="font-size:33.36306px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans"
-   id="tspan4673">x</tspan>c</tspan></tspan></text>
+   id="tspan4673">x'</tspan>c</tspan></tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path4675"
@@ -772,7 +775,7 @@
        sodipodi:cy="267.66592"
        sodipodi:rx="0.71428573"
        sodipodi:ry="0.71428573"
-       d="m 121.42857,267.66592 a 0.71428573,0.71428573 0 1 1 -1.42857,0 0.71428573,0.71428573 0 1 1 1.42857,0 z"
+       d="m 121.42857,267.66592 c 0,0.39449 -0.31979,0.71429 -0.71428,0.71429 -0.39449,0 -0.71429,-0.3198 -0.71429,-0.71429 0,-0.39449 0.3198,-0.71428 0.71429,-0.71428 0.39449,0 0.71428,0.31979 0.71428,0.71428 z"
        transform="matrix(15.129887,0,0,15.129887,-1079.1447,-3043.6554)" />
   </g>
 </svg>
